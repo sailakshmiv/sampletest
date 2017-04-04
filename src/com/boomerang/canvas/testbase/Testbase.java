@@ -34,6 +34,7 @@ public WebDriver getBrowser(String browser,String url,String os) throws IOExcept
 			return driver;
 		}
 		else if(browser.toLowerCase().equals("chrome") && os.toLowerCase().equals("windows")){
+			System.out.println("hello.................");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			System.setProperty("webdriver.chrome.driver", workspace+"/src/com/boomerang/canvas/drivers/chromedriver.exe");
 			driver= new ChromeDriver(chromeOptions);
