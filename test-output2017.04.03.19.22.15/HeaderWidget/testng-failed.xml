@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [HeaderWidget]">
+  <parameter name="password" value=""/>
+  <parameter name="enddate" value=""/>
+  <parameter name="Testcase" value="getMarginPercentPvP"/>
+  <parameter name="actualerrormessage" value=""/>
+  <parameter name="text" value=""/>
+  <parameter name="startdate" value=""/>
+  <parameter name="suiteName" value="HeaderWidget"/>
+  <parameter name="username" value=""/>
+  <test name="sentDates(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value="04/18/2017"/>
+    <parameter name="Testcase" value="sentDates"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value="11/21/2016"/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="sentDates" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- sentDates(failed) -->
+  <test name="getRevenueValueInDollars(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getRevenueValueInDollars"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getRevenueValueInDollars"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getRevenueValueInDollars(failed) -->
+  <test name="getRevenuePercentYoY(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getRevenuePercentYoY"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getRevenuePercentYoY"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getRevenuePercentYoY(failed) -->
+  <test name="getRevenuePercentPvP(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getRevenuePercentPvP"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getRevenuePercentPvP"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getRevenuePercentPvP(failed) -->
+  <test name="getMarginValueInDollars(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getMarginValueInDollars"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getMarginValueInDollars"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getMarginValueInDollars(failed) -->
+  <test name="getMarginPercentYoY(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getMarginPercentYoY"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="getMarginPercentYoY"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getMarginPercentYoY(failed) -->
+  <test name="getMarginPercentPvP(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getMarginPercentPvP"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="HeaderWidget"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="getMarginPercentPvP"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getMarginPercentPvP(failed) -->
+</suite> <!-- Failed suite [HeaderWidget] -->

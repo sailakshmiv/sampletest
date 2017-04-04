@@ -1,0 +1,14 @@
+{
+	"optimised_revenue_legend_text" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[1]/div[2]/div[2]",
+	"optimised_revenue_numbers" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[1]/div[2]/div[1]/span[1]",
+	"optimised_revenue_percent" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[1]/div[2]/div[1]/span[2]",
+	
+	"inpromo_revenue_legend_text" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[2]/div[2]/div[2]",
+	"inpromo_revenue_numbers" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[2]/div[2]/div[1]/span[1]",
+	"inpromo_revenue_percent" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[2]/div[2]/div[1]/span[2]",
+	
+	"unoptimised_revenue_legend_text" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[3]/div[2]/div[2]",
+	"unoptimised_revenue_numbers" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[3]/div[2]/div[1]/span[1]",
+	"unoptimised_revenue_percent" : "xpath_//div[@id = 'activestratProgress']/div[2]/div[3]/div[2]/div[1]/span[2]"
+	
+}

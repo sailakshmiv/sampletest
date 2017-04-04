@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [BigMovers]">
+  <parameter name="password" value=""/>
+  <parameter name="enddate" value=""/>
+  <parameter name="Testcase" value="getBigmoversWinnersbrandsPVPvalue"/>
+  <parameter name="actualerrormessage" value=""/>
+  <parameter name="text" value=""/>
+  <parameter name="startdate" value=""/>
+  <parameter name="suiteName" value="BigMovers"/>
+  <parameter name="username" value=""/>
+  <test name="getBigmoversLosersallYOYvalue(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getBigmoversLosersallYOYvalue"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="BigMovers"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getBigmoversLosersallYOYvalue"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getBigmoversLosersallYOYvalue(failed) -->
+  <test name="getBigmoversLosersallPVPvalue(failed)">
+    <parameter name="password" value=""/>
+    <parameter name="enddate" value=""/>
+    <parameter name="Testcase" value="getBigmoversLosersallPVPvalue"/>
+    <parameter name="actualerrormessage" value=""/>
+    <parameter name="text" value=""/>
+    <parameter name="startdate" value=""/>
+    <parameter name="suiteName" value="BigMovers"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.boomerang.canvas.suite.Testcases">
+        <methods>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="createreport"/>
+          <include name="getBigmoversLosersallPVPvalue"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+          <include name="screenshot"/>
+        </methods>
+      </class> <!-- com.boomerang.canvas.suite.Testcases -->
+    </classes>
+  </test> <!-- getBigmoversLosersallPVPvalue(failed) -->
+</suite> <!-- Failed suite [BigMovers] -->
