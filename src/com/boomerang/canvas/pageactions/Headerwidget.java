@@ -9,7 +9,7 @@ public class Headerwidget extends Testbase {
   
 
   public void sentDates(String startDate, String endDate) throws Exception {
-	  Thread.sleep(2000);
+	  Thread.sleep(5000);
   getobject("date_placeholder").click();
    WebElement startdate = getobject("start_date_text");
    startdate.clear();
@@ -21,6 +21,7 @@ public class Headerwidget extends Testbase {
    enddate.sendKeys(Keys.ENTER);
    Thread.sleep(3000);
    getobject("date_placeholder").click();
+   Thread.sleep(3000);
   }
   
   public String getRevenueText() throws Exception {

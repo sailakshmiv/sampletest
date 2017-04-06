@@ -9,8 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.Reporter;
+import com.boomerang.canvas.suite.Testcases;
+import com.boomerang.canvas.suite.Testsuite;
 import com.boomerang.canvas.testbase.Testbase;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class Genericlib extends Testbase{
 	ReadTestCase RTC = new ReadTestCase();
@@ -55,8 +57,8 @@ public class Genericlib extends Testbase{
 				if(list.getText().toLowerCase().contains(l.toLowerCase())){
 					actuallist = list.getText().toLowerCase();
 					expectedlist = l.toLowerCase();
-					Reporter.log("Actual categories data : " +actuallist,true);
-					Reporter.log("Expected categories data : " +expectedlist,true);
+					Testcases.test.log(LogStatus.INFO,"","Actual categories data : " +actuallist);
+					Testcases.test.log(LogStatus.INFO,"","Expected categories data : " +expectedlist);
 					Assert.assertEquals(actuallist, expectedlist);
 					break outer;
 			}
@@ -88,8 +90,8 @@ public class Genericlib extends Testbase{
 					for(Double l:value){
 						value1=getBigmoversYOYandPVPvalues(l);
 						if(c.trim().contains(value1)){
-							Reporter.log("Actual data : " +d,true);
-							Reporter.log("Expected data : " +value1,true);
+							Testcases.test.log(LogStatus.INFO,"","Actual data : " +d);
+							Testcases.test.log(LogStatus.INFO,"","Expected data : " +value1);
 							
 							break outer;
 						}
@@ -129,20 +131,6 @@ public class Genericlib extends Testbase{
 			}
 			return list;
 		}
-	/*	public void yoyandpvp(String metrix,String value1,String value2) throws Exception{
-			String b="";
-			String []a=metrix.split(" ");
-			if(a[0].contains("▼")){
-			b=a[0].replace("▼", "");
-			}
-			else{
-				b=a[0].replace("▲", "");
-			}
-			Reporter.log("Actual value : " + b.trim(),true);
-			String resyoy=getresponsesStringdata(value1,value2);
-			Reporter.log("Expected value : " + resyoy.replace("-", "").trim()+"%",true);
-			Assert.assertEquals(b.trim(), resyoy.replace("-", "").trim()+"%");
-		}*/
 		public void getYOYandPVPvalues(String filename,String metrix,String value1,String value2) throws Exception{
 			String b="";
 			if(metrix.contains("YOY") || metrix.contains("PVP")){
@@ -163,11 +151,12 @@ public class Genericlib extends Testbase{
 					b=a.replace("▲", "");
 				}
 			}
-			Reporter.log("Actual value : " + b.trim(),true);
+			System.out.println("test : " + Testsuite.test);
+			Testcases.test.log(LogStatus.INFO,"", "Actual value : " + b.trim());
 			String resyoy=getresponsesStringdata(filename,value1,value2);
 			double value = Double.parseDouble(resyoy.replace("-", "").trim());
 			String resrevenue1=truncate(value);
-			Reporter.log("Expected value : " + resrevenue1+"%",true);
+			Testcases.test.log(LogStatus.INFO,"", "Expected value : " + resrevenue1+"%");
 			Assert.assertEquals(b.trim(), resrevenue1+"%");
 		}
 		public String getBigmoversYOYandPVPvalues(Double metrix) throws Exception{

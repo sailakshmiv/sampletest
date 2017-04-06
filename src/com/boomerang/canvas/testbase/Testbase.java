@@ -17,6 +17,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 public class Testbase {
     public static WebDriver driver;	
 	public static Properties prop = new Properties();
@@ -24,8 +27,10 @@ public class Testbase {
 	public static FileInputStream fr;
 	public static FileOutputStream fos;
 	public static String workspace =System.getProperty("user.dir");
+	public static ExtentReports report;
+	public static ExtentTest test;
 	
-public WebDriver getBrowser(String browser,String url,String os) throws IOException{
+public WebDriver getBrowser(String browser,String os) throws IOException{
 	
 		if(browser.toLowerCase().equals("chrome") && os.toLowerCase().equals("mac")){
 			ChromeOptions chromeOptions = new ChromeOptions();

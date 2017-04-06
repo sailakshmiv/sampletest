@@ -77,8 +77,25 @@ public class XmltoJava extends GenericClass {
 		private String username;
 		private String password;
 		private String actualerrormessage;
+		@Override
+		public String toString() {
+			return "Parameter [testcase=" + testcase + ", username=" + username + ", password=" + password
+					+ ", actualerrormessage=" + actualerrormessage + ", text=" + text + ", name=" + name
+					+ ", startdate=" + startdate + ", enddate=" + enddate + "]";
+		}
+
 		private String text;
+		private String name;
 		
+		@XmlAttribute
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
 		@XmlAttribute
 		public String getText() {
 			return text;
@@ -87,12 +104,7 @@ public class XmltoJava extends GenericClass {
 		public void setText(String text) {
 			this.text = text;
 		}
-		@Override
-		public String toString() {
-			return "Parameter [testcase=" + testcase + ", username=" + username + ", password=" + password
-					+ ", actualerrormessage=" + actualerrormessage + ", text=" + text + ", startdate=" + startdate
-					+ ", enddate=" + enddate + "]";
-		}
+		
 		private String startdate;
 		
 		@XmlAttribute

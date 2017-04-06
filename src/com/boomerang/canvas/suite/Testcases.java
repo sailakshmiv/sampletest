@@ -14,7 +14,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.boomerang.canvas.genericlibrary.Genericlib;
@@ -24,8 +23,6 @@ import com.boomerang.canvas.pageactions.LoginPage;
 import com.boomerang.canvas.pageactions.ScoreboardWidget;
 import com.boomerang.canvas.test.listeners.ScreenshotListener;
 import com.boomerang.canvas.testbase.Testbase;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 //@Listeners(org.uncommons.reportng.HTMLReporter.class)
@@ -33,33 +30,33 @@ public class Testcases extends Testbase implements ITestListener{
 	LoginPage loginPage=new LoginPage();
 	Genericlib gl=new Genericlib();
 	Headerwidget hd=new Headerwidget();
-	ExtentReports report=Testsuite.report;
-	ExtentTest test=Testsuite.test;
+	//ExtentReports report=Testbase.report;
+	//ExtentTest test=Testbase.test;
 	ScoreboardWidget sb=new ScoreboardWidget();
 	ScreenshotListener sc=new ScreenshotListener();
 	 DecimalFormat format = new DecimalFormat();
 	 Bigmovers bm=new Bigmovers();
-	 String headerwidgetfile = "/src/org/boomerang/canvas/testoutput/HeaderandScoreboard.json";
-	 String aggregateppifile = "/src/org/boomerang/canvas/testoutput/AggregatePPI.json";
+	 String headerwidgetfile = "/src/com/boomerang/canvas/testoutput/HeaderandScoreboard.json";
+	 String aggregateppifile = "/src/com/boomerang/canvas/testoutput/AggregatePPI.json";
 	// String bigmoversppi = "/src/org/boomerang/canvas/testoutput/BigMoversAll.json";
-	 String bigmoverscategoriesppi = "/src/org/boomerang/canvas/testoutput/BigMoversCategories.json";
-	 String bigmoversbrandsppi = "/src/org/boomerang/canvas/testoutput/BigMoversBrands.json";
+	 String bigmoverscategoriesppi = "/src/com/boomerang/canvas/testoutput/BigMoversCategories.json";
+	 String bigmoversbrandsppi = "/src/com/boomerang/canvas/testoutput/BigMoversBrands.json";
 
-	@Parameters({"suiteName"})
+	@Parameters({"suiteName","testcase"})
 	@BeforeMethod
-	 public void createreport(ITestContext arg0,String suiteName) throws IOException{
+	 public void createreport(ITestContext arg0,String suiteName,String testcase) throws IOException{
 		try{
-		test = report.startTest(arg0.getName());
+		test = report.startTest(testcase);
 	    test.assignCategory(suiteName);
 		}
 		catch(Exception e){
 		e.printStackTrace();
 		}
 	 }
-	@Parameters({"suiteName"})
+	@Parameters({"suiteName","testcase"})
 	@AfterMethod
-		public void screenshot(ITestResult arg0,String suiteName,Method method) throws InterruptedException, IOException {
-		String screenshotname =suiteName+arg0.getName().toString(); 
+		public void screenshot(ITestResult arg0,String suiteName,Method method,String testcase) throws InterruptedException, IOException {
+		String screenshotname =suiteName+testcase; 
 		try {
 			
 		     String screenshot = sc.takeScreenshot(arg0,screenshotname);
@@ -79,16 +76,16 @@ public class Testcases extends Testbase implements ITestListener{
         }
         System.out.println(test1.description());
 		int result=arg0.getStatus();
-	      String testcase =suiteName+arg0.getName().toString(); 
+	      String testcase1 =suiteName+testcase.toString(); 
 	     if(result ==1){
-	      prop.put(testcase, "PASS");
-	      test.log(LogStatus.PASS, arg0.getName()+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png"),test1.description());
+	      prop.put(testcase1, "PASS");
+	      test.log(LogStatus.PASS, testcase+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png"),test1.description());
 	     }else if(result ==2){
-	      prop.put(testcase, "FAIL"); 
-	      test.log(LogStatus.FAIL, arg0.getName()+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png")+test1.description(),arg0.getThrowable());
+	      prop.put(testcase1, "FAIL"); 
+	      test.log(LogStatus.FAIL, testcase+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png")+test1.description(),arg0.getThrowable());
 	     }else if(result ==3){
-	      prop.put(testcase, "SKIP"); 
-	      test.log(LogStatus.SKIP, arg0.getName()+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png")+test1.description(),arg0.getThrowable());
+	      prop.put(testcase1, "SKIP"); 
+	      test.log(LogStatus.SKIP, testcase+"Screencast below:" + test.addScreenCapture("./html/"+screenshotname+".png")+test1.description(),arg0.getThrowable());
 	     }
 		report.endTest(test);
 		report.flush();	
@@ -145,18 +142,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isHeaderRevenueTextPresent(String text) throws Exception {
 		Reporter.log("======================get the revnue text======================",true);
 		String revenuevalue = hd.getRevenueText();
-		Reporter.log("Actual value : " + revenuevalue,true);
-		Reporter.log("Expected value : " + text,true);
+		test.log(LogStatus.INFO,"","Actual value : " + revenuevalue);
+		test.log(LogStatus.INFO,"","Expected value : " + text);
 		Assert.assertEquals(revenuevalue, text);
 	    }
 	@Test(description= "Verifying the Revenue value from Header Widget across Revenue value which is comming from Backend")
 	  public void getRevenueValueInDollars() throws Exception {
 		Reporter.log("======================get the revnue value======================",true);
 		String revenuevalue = hd.getRevenueValueInDollars();
-		Reporter.log("Actual value : " + revenuevalue,true);
+		test.log(LogStatus.INFO,"", "Actual value : " + revenuevalue);
 		Double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","REVENUE");
 		String resrevenue1=gl.truncate(respop/1000000);
-		Reporter.log("Expected value : " + "$"+resrevenue1 +"M",true);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
 		Assert.assertEquals(revenuevalue, "$"+resrevenue1 +"M");
 	    }
 	@Test(description= "Verifying the Revenue YOY value from Header Widget across Revenue YOY value which is comming from Backend")
@@ -176,17 +173,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isHeaderMarginTextPresent(String text) throws Exception {
 		Reporter.log("======================get the margin text======================",true);
 		String revenuevalue = hd.getMaginText();
-		Reporter.log("Actual value : " + revenuevalue,true);
-		Reporter.log("Expected value : " + text,true);
+		test.log(LogStatus.INFO,"", "Actual value : " + revenuevalue);
+		test.log(LogStatus.INFO,"", "Expected value : " + text);
 		Assert.assertEquals(revenuevalue, text);
 	    }
 	@Test(description= "Verifying the Margin value from Header Widget across Margin value which is comming from Backend")
 	  public void getMarginValueInDollars() throws Exception {
 		Reporter.log("======================get the margin value======================",true);
 		String marginvalue = hd.getMarginValueInDollars();
+		test.log(LogStatus.INFO,"", "Actual value : " + marginvalue);
 		Double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","MARGIN");
 		String resrevenue1=gl.truncate(respop/1000000);
-		Reporter.log("Expected value : " + "$"+resrevenue1 +"M",true);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
 		Assert.assertEquals(marginvalue, "$"+resrevenue1 +"M");
 	    }
 
@@ -210,17 +208,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isMarginTextPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard margin text ======================",true);
 		String margintext = sb.MarginTextPresent();
-		Reporter.log("Actual data :" + margintext,true);
-		Reporter.log("Expected data :" + text,true);
+		test.log(LogStatus.INFO,"","Actual data :" + margintext);
+		test.log(LogStatus.INFO,"","Expected data :" + text);
 		Assert.assertEquals(margintext, text);
 	    }
 	@Test(description= "Verifying the Margin value from Scoreboard Widget across Margin value which is comming from Backend")
 	  public void getMarginValue() throws Exception {
 		Reporter.log("======================get the scoreboard margin value======================",true);
 		String marginvalue = sb.getMarginValue();
+		test.log(LogStatus.INFO,"", "Actual value : " + marginvalue);
 		Double respop= gl.getresponsesintdata(headerwidgetfile,"RESULT","MARGIN");
 		String resrevenue1=gl.truncate(respop/1000000);
-		Reporter.log("Expected value : " + "$"+resrevenue1 +"M",true);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
 		Assert.assertEquals(marginvalue, "$"+resrevenue1 +"M");
 	    }
 	@Test(description= "Verifying the Margin YOY value from Scoreboard Widget across Margin YOY value which is comming from Backend")
@@ -243,17 +242,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isRevenueTextPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard revnue text======================",true);
 		String revenuetext = sb.isRevenueTextPresent();
-		Reporter.log("Actual data : " +revenuetext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +revenuetext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(revenuetext, text);
 	    }
 	@Test(description= "Verifying the Revenue value from Scoreboard Widget across Revenue value which is comming from Backend")
 	  public void getRevenueValue() throws Exception {
 		Reporter.log("======================get the scoreboard revnue value======================",true);
 		String revenue = sb.getRevenueValue();
+		test.log(LogStatus.INFO,"","Actual data : " + revenue);
 		Double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","REVENUE");
 		String resrevenue1=gl.truncate(respop/1000000);
-		Reporter.log("Expected value : " + "$"+resrevenue1 +"M",true);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
 		Assert.assertEquals(revenue, "$"+resrevenue1 +"M");
 	    }
 	@Test(description= "Verifying the Revenue YOY value from Scoreboard Widget across Revenue YOY value which is comming from Backend")
@@ -276,18 +276,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isUnitsTextPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard unit text======================",true);
 		String unittext = sb.isUnitsTextPresent();
-		Reporter.log("Actual data : " +unittext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +unittext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(unittext, text);
 	    }
 	@Test(description= "Verifying the Units value from Scoreboard Widget across Units value which is comming from Backend")
 	  public void getUnitsValue() throws Exception {
 		Reporter.log("======================get the scoreboard unit value======================",true);
 		String unit = sb.getUnitsValue();
-		Reporter.log("Actaul value : " + unit,true);
+		test.log(LogStatus.INFO,"","Actaul value : " + unit);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","UNITS");
 		String formattedvalue=gl.truncate(respop/1000000);
-		Reporter.log("Expected value :" + formattedvalue+"M",true);
+		test.log(LogStatus.INFO,"", "Expected value :" + formattedvalue+"M");
 		Assert.assertEquals(unit, formattedvalue+"M");
 	    }
 	
@@ -311,18 +311,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isAvgSalePriceTextPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard Avg saale price text======================",true);
 		String avgsaletext = sb.isAvgSalePriceTextPresent();
-		Reporter.log("Actual data : " +avgsaletext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +avgsaletext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(avgsaletext, text);
 	    }
 	@Test(description= "Verifying the Avg sale price value from Scoreboard Widget across Avg sale price value which is comming from Backend")
 	  public void getAvgSalePriceValue() throws Exception {
 		Reporter.log("======================get the scoreboard Avg sale price value======================",true);
 		String avgsale = sb.getAvgSalePriceValue();
-		Reporter.log("Actual value : " + avgsale,true);
+		test.log(LogStatus.INFO,"", "Actual value : " + avgsale);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","AVG_SALE_PRICE");
 		String formattedvalue=gl.truncate(respop);
-	    Reporter.log("Expected value : " + "$"+ formattedvalue,true);
+	    test.log(LogStatus.INFO,"", "Expected value : " + "$"+ formattedvalue);
 		Assert.assertEquals(avgsale, "$"+ formattedvalue);
 	    }
 	@Test(description= "Verifying the Avg sale price YOY value from Scoreboard Widget across Avg sale price YOY value which is comming from Backend")
@@ -345,18 +345,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isConversionPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard conversion text======================",true);
 		String conversiontext = sb.isConversionPresent();
-		Reporter.log("Actual data : " +conversiontext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +conversiontext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
         Assert.assertEquals(conversiontext, text);
 	    }
 	@Test(description= "Verifying the Conversion value from Scoreboard Widget across Conversion value which is comming from Backend")
 	  public void getConversionValue() throws Exception {
 		Reporter.log("======================get the scoreboard conversion value======================",true);
 		String conversionvalue = sb.getConversionValue();
-		Reporter.log("Actual value :"+conversionvalue,true);
+		test.log(LogStatus.INFO,"", "Actual value :"+conversionvalue);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","CONVERSION");
 		String formattedvalue=gl.truncate(respop);
-		Reporter.log("Expected value :" +formattedvalue+"%",true);
+		test.log(LogStatus.INFO,"", "Expected value :" +formattedvalue+"%");
 		Assert.assertEquals(conversionvalue, formattedvalue+"%");
 	    }
 	@Test(description= "Verifying the Conversion YOY value from Scoreboard Widget across Conversion YOY value which is comming from Backend")
@@ -379,18 +379,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isPageViewsPresent(String text) throws Exception {
 		Reporter.log("======================get the scoreboard pageview text======================",true);
 		String pageviewtext = sb.isPageViewsPresent();
-		Reporter.log("Actual data : " +pageviewtext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +pageviewtext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(pageviewtext, text);
 	    }
 	@Test(description= "Verifying the Page views value from Scoreboard Widget across page views value which is comming from Backend")
 	  public void getPageViewsValue() throws Exception {
 		Reporter.log("======================get the scoreboard pageview value======================",true);
 		String pageviewvalue = sb.getPageViewsValue();
-		Reporter.log("Actual value :" + pageviewvalue,true);
+		test.log(LogStatus.INFO,"", "Actual value :" + pageviewvalue);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","PAGEVIEWS");
 	    String resrevenue1=gl.truncate(respop/1000000);
-	    Reporter.log("Expected value :" + resrevenue1+"M",true);
+	    test.log(LogStatus.INFO,"", "Expected value :" + resrevenue1+"M");
 		Assert.assertEquals(pageviewvalue, resrevenue1+"M");
 	    }
 	@Test(description= "Verifying the Page views YOY value from Scoreboard Widget across Page views YOY value which is comming from Backend")
@@ -413,18 +413,18 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isUnitsPerOrder(String text) throws Exception {
 		Reporter.log("======================get the scoreboard units per order text======================",true);
 		String unitsperorder = sb.isUnitsPerOrder();
-		Reporter.log("Actual data : " +unitsperorder,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +unitsperorder);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(unitsperorder, text);
 	    }
 	@Test(description= "Verifying the Units per order value from Scoreboard Widget across Units per order value which is comming from Backend")
 	  public void getUnitsPerOrderValue() throws Exception {
 		Reporter.log("======================get the scoreboard units per order value======================",true);
 		String unitsperordervalue = sb.getUnitsPerOrderValue();
-	    Reporter.log("Actual value : "+unitsperordervalue,true);
+	    test.log(LogStatus.INFO,"", "Actual value : "+unitsperordervalue);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","UNITS_PER_ORDER");
 		String resrevenue1=gl.truncate(respop);
-		Reporter.log("Expected value : "+resrevenue1+"X",true);
+		test.log(LogStatus.INFO,"", "Expected value : "+resrevenue1+"X");
 		Assert.assertEquals(unitsperordervalue, resrevenue1+"X");
 	    }
 	@Test(description= "Verifying the Units per order YOY value from Scoreboard Widget across Units per order YOY value which is comming from Backend")
@@ -450,8 +450,8 @@ public class Testcases extends Testbase implements ITestListener{
 		Reporter.log("======================get the bigmovers text======================",true);
 		String bigmoverstext = bm.getBigmoversText();
 		String a[]=bigmoverstext.split("\n");
-		Reporter.log("Actual data : " +a[0],true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +a[0]);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(a[0], text);
 	    }
 	@Parameters({"text"})
@@ -459,8 +459,8 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isBigmoversAllTextpresent(String text) throws Exception {
 		Reporter.log("======================get the bigmovers all text======================",true);
 		String bigmoversalltext = bm.getBigmoversAllText();
-		Reporter.log("Actual data : " +bigmoversalltext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +bigmoversalltext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(bigmoversalltext, text);
 	    }
 	@Parameters({"text"})
@@ -468,8 +468,8 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isBigmoversWinnnersTextpresent(String text) throws Exception {
 		Reporter.log("======================get the bigmovers winners text======================",true);
 		String bigmoverswinnertext = bm.getBigmoversWinnnersText();
-		Reporter.log("Actual data : " +bigmoverswinnertext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +bigmoverswinnertext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(bigmoverswinnertext, text);
 	    }
 	@Parameters({"text"})
@@ -477,8 +477,8 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isBigmoversLosersTextpresent(String text) throws Exception {
 		Reporter.log("======================get the bigmovers loosers text======================",true);
 		String bigmoversloosertext = bm.getBigmoversLoosersText();
-		Reporter.log("Actual data : " +bigmoversloosertext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +bigmoversloosertext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(bigmoversloosertext, text);
 	    }
 	@Parameters({"text"})
@@ -486,8 +486,8 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isBigmoversCategoriesTextpresent(String text) throws Exception {
 		Reporter.log("======================get the bigmovers categories text======================",true);
 		String bigmoversloosertext = bm.getBigmoversCategoriesText();
-		Reporter.log("Actual data : " +bigmoversloosertext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +bigmoversloosertext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(bigmoversloosertext, text);
 	    }
 	@Parameters({"text"})
@@ -495,8 +495,8 @@ public class Testcases extends Testbase implements ITestListener{
 	  public void isBigmoversBrandsTextpresent(String text) throws Exception {
 		Reporter.log("======================get the bigmovers brand text======================",true);
 		String bigmoversloosertext = bm.getBigmoversBrandsText();
-		Reporter.log("Actual data : " +bigmoversloosertext,true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +bigmoversloosertext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(bigmoversloosertext, text);
 	    }
 	//#################### get the Losers data for all,categories,brands ##########################
@@ -507,7 +507,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversloserlist = bm.getBigmoversLoserslist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoversloserlist, bigmoversbrandsppi,"DIMENSION","brand");
@@ -522,7 +522,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversloserlist = bm.getBigmoversLoserslist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoversloserlist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
@@ -535,7 +535,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversloserlist = bm.getBigmoversLoserslist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoversloserlist, bigmoversbrandsppi,"DIMENSION","brand");
@@ -549,7 +549,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoverswinnerslist = bm.getBigmoversWinnerslist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
@@ -564,7 +564,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoverswinnerslist = bm.getBigmoversWinnerslist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoverswinnerslist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
@@ -577,7 +577,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoverswinnerslist = bm.getBigmoversWinnerslist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
@@ -592,7 +592,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLosersyoylist = bm.getBigmoversLosersyoylist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLosersyoylist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
@@ -607,7 +607,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLosersyoylist = bm.getBigmoversLosersyoylist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
@@ -620,7 +620,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLosersyoylist = bm.getBigmoversLosersyoylist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLosersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
@@ -636,7 +636,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversWinnersyoylist = bm.getBigmoversWinnersyoylist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
@@ -651,7 +651,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversWinnersyoylist = bm.getBigmoversWinnersyoylist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
@@ -664,7 +664,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversWinnersyoylist = bm.getBigmoversWinnersyoylist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
@@ -678,7 +678,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLoserspvplist = bm.getBigmoversLoserspvplist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLoserspvplist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
@@ -692,7 +692,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLoserspvplist = bm.getBigmoversLoserspvplist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLoserspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
@@ -705,7 +705,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversLoserspvplist = bm.getBigmoversLoserspvplist();
 		if(bm.getBigmoversLossersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversLoserspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
@@ -720,7 +720,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversWinnerspvplist = bm.getBigmoversWinnerspvplist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
@@ -735,7 +735,7 @@ public class Testcases extends Testbase implements ITestListener{
 		List<WebElement> bigmoversWinnerspvplist = bm.getBigmoversWinnerspvplist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnerspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
@@ -744,12 +744,12 @@ public class Testcases extends Testbase implements ITestListener{
 	@Test(description= "Verifying the Winners YOY value which are under Brands section from Big Movers Widget across Dimesion PVP values which is comming from Backend")
 	  public void getBigmoversWinnersbrandsPVPvalue() throws Exception {
 		Reporter.log("======================get the bigmovers winners brands pvp list======================",true);
-		//test.log(LogStatus.INFO, "it will validate the PVP value which is shown as like API response");
+		//test.log(LogStatus.INFO,"", "it will validate the PVP value which is shown as like API response");
 		bm.BigmoversBrandsButton();
 		List<WebElement> bigmoversWinnerspvplist = bm.getBigmoversWinnerspvplist();
 		if(bm.getBigmoversWinnersEmptyitemText())
 		{
-			Reporter.log("No items present in this list",true);
+			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
 			gl.getlist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
@@ -763,8 +763,8 @@ public class Testcases extends Testbase implements ITestListener{
 		Reporter.log("======================get the bigmovers Normal text======================",true);
 		String bigmoverstext = bm.getBigmoversTrianglegraphNormaltext();
 		String a[]=bigmoverstext.split("(");
-		Reporter.log("Actual data : " +a[0].trim(),true);
-		Reporter.log("Expected data : " +text,true);
+		test.log(LogStatus.INFO,"","Actual data : " +a[0].trim());
+		test.log(LogStatus.INFO,"","Expected data : " +text);
 		Assert.assertEquals(a[0], text);
 	    }
 	

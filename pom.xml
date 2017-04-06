@@ -34,6 +34,24 @@
       </resource>
     </resources>
 		<plugins>
+		
+		<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.16</version>
+    <configuration>
+      <systemPropertyVariables>
+        <Browser>${browser}</Browser>
+        <OS>${os}</OS>
+        <ClientURL>${client}</ClientURL>
+        <Client>${client}</Client>
+        <Env>${env}</Env>
+        <Build>${build}</Build>
+        <Groups>${groups}</Groups>
+        <SuiteNmae>${suiteName}</SuiteNmae>
+      </systemPropertyVariables>
+    </configuration>
+  </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -92,6 +110,11 @@
     			<artifactId>extentreports</artifactId>
     			<version>2.41.0</version>
 		</dependency>
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
         <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
@@ -116,6 +139,11 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
 			<version>2.46.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.10.69</version>
 		</dependency>
 	</dependencies>
 </project>
