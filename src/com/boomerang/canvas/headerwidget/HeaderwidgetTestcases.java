@@ -117,13 +117,13 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 	  public void getRevenuePercentYoY() throws Exception {
 		Reporter.log("======================get the revnue yoy value======================",true);
 		String yoy = hd.getRevenuePercentYoY();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
+		gl.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
 	    }
 	@Test(description= "Verifying the Revenue PVP value from Header Widget across Revenue PVP value which is comming from Backend")
 	  public void getRevenuePercentPvP() throws Exception {
 		Reporter.log("======================get the revnue pvp value======================",true);
 		String pvp=hd.getRevenuePercentPvP();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
+		gl.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
 	    }
 	@Parameters({"text"})
 	@Test(description= "Verifying the Margin text is present in header widget or not")
@@ -149,13 +149,13 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 	  public void getMarginPercentYoY() throws Exception {
 		Reporter.log("======================get the margin yoy value======================",true);
 		String yoy = hd.getMarginPercentYoY();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
+		gl.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
 	    }
 	@Test(description= "Verifying the Margin PVP value from Header Widget across Margin PVP value which is comming from Backend")
 	  public void getMarginPercentPvP() throws Exception {
 		Reporter.log("======================get the margin pvp value======================",true);
 		String pvp = hd.getMarginPercentPvP();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
+		gl.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
 	    }
 		
 	@Override

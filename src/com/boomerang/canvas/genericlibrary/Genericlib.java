@@ -130,10 +130,12 @@ public class Genericlib extends Testbase{
 			}
 			return list;
 		}
-		public void getYOYandPVPvalues(String filename,String metrix,String value1,String value2) throws Exception{
+		public void getYOYandPVPforheaderwidgetvalues(String filename,String metrix,String value1,String value2) throws Exception{
 			String b="";
+			System.out.println(metrix);
 			if(metrix.contains("YOY") || metrix.contains("PVP")){
 			String []a=metrix.split(" ");
+			System.out.println(a);
 			if(a[0].contains("▼")){
 			b=a[0].replace("▼", "");
 			}
@@ -142,6 +144,40 @@ public class Genericlib extends Testbase{
 			}
 			}
 			else{
+				String a=metrix;
+				if(a.contains("▼")){
+				b=a.replace("▼", "");
+				}
+				else{
+					b=a.replace("▲", "");
+				}
+			}
+			System.out.println("test : " + Testsuite.test);
+			Testbase.test.log(LogStatus.INFO,"", "Actual value : " + b.trim());
+			String resyoy=getresponsesStringdata(filename,value1,value2);
+			double value = Double.parseDouble(resyoy.replace("-", "").trim());
+			String resrevenue1=truncate(value);
+			Testbase.test.log(LogStatus.INFO,"", "Expected value : " + resrevenue1+"%");
+			Assert.assertEquals(b.trim(), resrevenue1+"%");
+		}
+		public void getYOYandPVPforscoreboardvalues(String filename,String metrix,String value1,String value2) throws Exception{
+			String b="";
+			System.out.println(metrix);
+			if(metrix.contains("YOY") || metrix.contains("PVP")){
+				System.out.println(metrix);
+			String []a=metrix.split(" ");
+			System.out.println(a);
+			if(a[1].contains("▼")){
+			b=a[1].replace("▼", "");
+			System.out.println(b);
+			}
+			else{
+				b=a[1].replace("▲", "");
+				System.out.println(b);
+			}
+			}
+			else{
+				System.out.println(metrix);
 				String a=metrix;
 				if(a.contains("▼")){
 				b=a.replace("▼", "");
