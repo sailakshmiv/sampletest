@@ -123,11 +123,20 @@ public static void main(String args[]) throws Exception{
 		loadfile();
 		Testsuite ts=new Testsuite();
 		Testbase tb=new Testbase();
-		System.out.println(System.getProperty("ClientURL"));
+		System.out.println(System.getProperty("Browser"));
+	System.out.println(System.getProperty("ClientURL"));
+	System.out.println(System.getProperty("Env"));
+	System.out.println(System.getProperty("Build"));
+	System.out.println(System.getProperty("Groups"));
+	System.out.println(System.getProperty("Suitename"));
+	System.out.println(System.getProperty("Username"));
+	System.out.println(System.getProperty("Password"));
+	
 		if(System.getProperty("Username")== null | System.getProperty("Password")== null | System.getProperty("Browser")== null | System.getProperty("ClientURL")== null | System.getProperty("Env")== null 
 				| System.getProperty("Build")== null | System.getProperty("Groups")== null | System.getProperty("Suitename")== null)
 		{
 		System.out.println(System.getProperty("ClientURL"));
+			
 		System.setProperty("Browser", prop.getProperty("defaultBrowser"));
 		System.setProperty("ClientURL", prop.getProperty("defaultClientURL"));
 		System.setProperty("Env", prop.getProperty("defaultEnv"));
