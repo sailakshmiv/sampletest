@@ -119,13 +119,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getMarginYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard margin yoy value======================",true);
 		String yoy = sb.getMarginYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
 	    }
 	@Test(description= "Verifying the Margin PVP value from Scoreboard Widget across Margin PVP value which is comming from Backend")
 	  public void getMarginPVPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard margin pvp value======================",true);
 		String pvp = sb.getMargingPvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
 	    }
 	
 	//####################### Revenue Test cases #########################################
@@ -153,13 +153,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getRevenueYoYPercent() throws Exception {
 		Reporter.log("======================get the scoeboard revnue yoy value======================",true);
 		String yoy = sb.getRevenueYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
 	    }
 	@Test(description= "Verifying the Revenue PVP value from Scoreboard Widget across Revenue PVP value which is comming from Backend")
 	  public void getRevenuePvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard revnue pvp value======================",true);
 		String pvp = sb.getRevenuePvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
 	    }
 	
 	//####################### Unit Test cases #########################################
@@ -188,13 +188,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getUnitsYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard unit yoy value======================",true);
 		String yoy = sb.getUnitsYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
 	    }
 	@Test(description= "Verifying the Units PVP value from Scoreboard Widget across Units PVP value which is comming from Backend")
 	  public void getUnitsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard unit pvp value======================",true);
 		String pvp = sb.getUnitsPvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
 	    }
 	
 	//####################### Avg sale price Test cases #########################################
@@ -222,13 +222,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getAvgSalePriceYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Avg sale price yoy value======================",true);
 		String avgsaleyoy = sb.getAvgSalePriceYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
 	    }
 	@Test(description= "Verifying the Avg sale price PVP value from Scoreboard Widget across Avg sale price PVP value which is comming from Backend")
 	  public void getAvgSalePricePvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Avg sale price pvp value======================",true);
 		String avgsalepvp = sb.getAvgSalePricePvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
 	    }
 	
 	//####################### Conversion Test cases #########################################
@@ -256,13 +256,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getConversionYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion yoy value======================",true);
 		String conversionyoy = sb.getConversionYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
 	    }
 	@Test(description= "Verifying the Conversion PVP value from Scoreboard Widget across Conversion PVP value which is comming from Backend")
 	  public void getConversionPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion pvp value======================",true);
 		String conversionpvp = sb.getConversionPvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
 	    }
 
 	//####################### PageView Test cases #########################################
@@ -290,13 +290,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getPageViewsYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion yoy value======================",true);
 		String pageviewyoy = sb.getPageViewsYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
 	    }
 	@Test(description= "Verifying the Page views PVP value from Scoreboard Widget across Page views PVP value which is comming from Backend")
 	  public void getPageViewsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion pvp value======================",true);
 		String pageviewpvp = sb.getPageViewsPvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
 	    }
 	
 	//####################### Units per order Test cases #########################################
@@ -324,13 +324,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getUnitsPerOrderYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard units per order yoy value======================",true);
 		String unitsperoderyoy = sb.getUnitsPerOrderYoYPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
 	    }
 	@Test(description= "Verifying the Units per order PVP value from Scoreboard Widget across Units per order PVP value which is comming from Backend")
 	  public void getUnitsPerOrderPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard units per order pvp value======================",true);
 		String unitsperoderpvp = sb.getUnitsPerOrderPvPPercent();
-		gl.getYOYandPVPvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
+		gl.getYOYandPVPforscoreboardvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
 	    }
 	
 	
