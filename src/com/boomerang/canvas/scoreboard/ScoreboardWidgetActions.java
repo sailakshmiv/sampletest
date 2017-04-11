@@ -1,8 +1,8 @@
-package com.boomerang.canvas.pageactions;
+package com.boomerang.canvas.scoreboard;
 
 import com.boomerang.canvas.testbase.Testbase;
 
-public class ScoreboardWidget extends Testbase {
+public class ScoreboardWidgetActions extends Testbase {
 
 
   public String MarginTextPresent() throws Exception {

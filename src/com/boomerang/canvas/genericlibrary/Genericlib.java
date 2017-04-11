@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import com.boomerang.canvas.suite.Testcases;
 import com.boomerang.canvas.suite.Testsuite;
 import com.boomerang.canvas.testbase.Testbase;
 import com.relevantcodes.extentreports.LogStatus;
@@ -57,8 +56,8 @@ public class Genericlib extends Testbase{
 				if(list.getText().toLowerCase().contains(l.toLowerCase())){
 					actuallist = list.getText().toLowerCase();
 					expectedlist = l.toLowerCase();
-					Testcases.test.log(LogStatus.INFO,"","Actual categories data : " +actuallist);
-					Testcases.test.log(LogStatus.INFO,"","Expected categories data : " +expectedlist);
+					Testbase.test.log(LogStatus.INFO,"","Actual categories data : " +actuallist);
+					Testbase.test.log(LogStatus.INFO,"","Expected categories data : " +expectedlist);
 					Assert.assertEquals(actuallist, expectedlist);
 					break outer;
 			}
@@ -90,8 +89,8 @@ public class Genericlib extends Testbase{
 					for(Double l:value){
 						value1=getBigmoversYOYandPVPvalues(l);
 						if(c.trim().contains(value1)){
-							Testcases.test.log(LogStatus.INFO,"","Actual data : " +d);
-							Testcases.test.log(LogStatus.INFO,"","Expected data : " +value1);
+							Testbase.test.log(LogStatus.INFO,"","Actual data : " +d);
+							Testbase.test.log(LogStatus.INFO,"","Expected data : " +value1);
 							
 							break outer;
 						}
@@ -152,11 +151,11 @@ public class Genericlib extends Testbase{
 				}
 			}
 			System.out.println("test : " + Testsuite.test);
-			Testcases.test.log(LogStatus.INFO,"", "Actual value : " + b.trim());
+			Testbase.test.log(LogStatus.INFO,"", "Actual value : " + b.trim());
 			String resyoy=getresponsesStringdata(filename,value1,value2);
 			double value = Double.parseDouble(resyoy.replace("-", "").trim());
 			String resrevenue1=truncate(value);
-			Testcases.test.log(LogStatus.INFO,"", "Expected value : " + resrevenue1+"%");
+			Testbase.test.log(LogStatus.INFO,"", "Expected value : " + resrevenue1+"%");
 			Assert.assertEquals(b.trim(), resrevenue1+"%");
 		}
 		public String getBigmoversYOYandPVPvalues(Double metrix) throws Exception{

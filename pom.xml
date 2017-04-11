@@ -42,13 +42,13 @@
     <configuration>
       <systemPropertyVariables>
         <Browser>${browser}</Browser>
-        <OS>${os}</OS>
         <ClientURL>${client}</ClientURL>
-        <Client>${client}</Client>
         <Env>${env}</Env>
         <Build>${build}</Build>
         <Groups>${groups}</Groups>
-        <SuiteNmae>${suiteName}</SuiteNmae>
+        <Suitename>${suitename}</Suitename>
+        <Username>${username}</Username>
+        <Password>${password}</Password>
       </systemPropertyVariables>
     </configuration>
   </plugin>
@@ -61,18 +61,15 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			  <plugin>
+			<!-- to make jar -->
+	<!--  	  <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4.1</version>
 				
 				<configuration>
 				
-					<!-- get all project dependencies -->
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<!-- MainClass in mainfest make a executable jar -->
+					
 					<archive>
 					  <manifest>
 						<mainClass>com.boomerang.canvas.suite.Testsuite</mainClass>
@@ -83,14 +80,32 @@
 				<executions>
 				  <execution>
 					<id>make-assembly</id>
-                                        <!-- bind to the packaging phase -->
 					<phase>package</phase>
 					<goals>
 						<goal>single</goal>
 					</goals>
 				  </execution>
 				</executions>
-			</plugin>
+			</plugin> -->
+					
+					<plugin>  
+   <groupId>org.codehaus.mojo</groupId>  
+   <artifactId>exec-maven-plugin</artifactId>  
+   <version>1.1.1</version>  
+   <executions>  
+    <execution>  
+     <phase>test</phase>  
+     <goals>  
+      <goal>java</goal>  
+     </goals>  
+     <configuration>  
+      <mainClass>com.boomerang.canvas.suite.Testsuite</mainClass>  
+      
+     </configuration>  
+    </execution>  
+   </executions>  
+  </plugin>  
+  
 		</plugins>
 	</build>
 
@@ -105,11 +120,32 @@
 			<artifactId>json</artifactId>
 			<version>20160212</version>
 		</dependency>
+		
 		<dependency>
     			<groupId>com.relevantcodes</groupId>
     			<artifactId>extentreports</artifactId>
-    			<version>2.41.0</version>
+    			<version>2.41.1</version>
 		</dependency>
+		<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.8.3</version>
+</dependency>
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.8.11.1</version>
+</dependency>
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.23</version>
+</dependency>
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongodb-driver</artifactId>
+    <version>3.0.4</version>
+</dependency>
 	<dependency>
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
@@ -145,5 +181,6 @@
 			<artifactId>aws-java-sdk-s3</artifactId>
 			<version>1.10.69</version>
 		</dependency>
+		
 	</dependencies>
 </project>

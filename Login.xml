@@ -1,0 +1,18 @@
+<XmltoJava name="Canvas_Automation">
+  <suite suitename="Login-TC" classname="login.LoginTestcases">
+  <parameter name="ValidLogin_ValidUsername_With_ValidPassword" testcase="validLogin" username="testing1@boomerangcommerce.com" password="Boomerang123$" actualerrormessage=""  startdate="" enddate="" text="" />
+	 	  <parameter name="Validation_SwitchAction_From_PPMtoPO" testcase="switchfromPPMtoPO" username="" password="" actualerrormessage=""  startdate="" enddate="" text="Strategy Dashboard" />
+		   <parameter name="Validation_SwitchAction_From_POtoPPM" testcase="switchfromPOtoPPM" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
+	 	 <parameter name="Validation_Logout" testcase="LogOut" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 	 <parameter name="InvalidLogin_ValidUsername_With_EmptyPassword" testcase="invalidLoginWithvalidUsernameEmptyPassword" username="lakshmi@boomerangcommerce.com" password="" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />
+		 <parameter name="InvalidLogin_EmptyUsername_With_EmptyPassword" testcase="invalidLoginWithEmptyUsernameEmptyPassword" username="" password="" actualerrormessage="Username field is blank"  startdate="" enddate="" text="" />
+		  <parameter name="InvalidLogin_InvalidUsername_With_InvalidPassword" testcase="invalidLoginWithInvalidUsernameinvalidPassword" username="invalid" password="invalid" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />
+		 <!--   <parameter name="InvalidLogin_For_AccountLock" testcase="invalidLoginWithAccountLock" username="" password="" actualerrormessage="Username field is blank"  startdate="" enddate="" text="" />
+		   --><parameter name="Validation_ForgetPasswordButton" testcase="forgetPasswordlink" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validation_ForgetPassword_With_EmptyUserName" testcase="forgetPasswordUserNameWithEmptyValue" username="" password="" actualerrormessage="Username can't be empty"  startdate="" enddate="" text="" />
+	 <parameter name="Validation_ForgetPassword_With_InvalidUsernName" testcase="forgetPasswordUserNameWithInvalidValue" username="Invalid" password="" actualerrormessage="No user exists with username"  startdate="" enddate="" text="" />
+	 <parameter name="Validation_ForgetPassword_LoginButton" testcase="forgetPasswordPageLoginbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validation_ForgetPassword_With_ValidUserName" testcase="forgetPasswordUserNameWithvalidValue" username="lakshmi@boomerangcommerce.com" password="" actualerrormessage="A mail containing a link to reset your password has been sent to your registered email."  startdate="" enddate="" text="" />
+	 
+	  </suite>  
+</XmltoJava>

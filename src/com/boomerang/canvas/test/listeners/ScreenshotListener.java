@@ -55,10 +55,11 @@ public class ScreenshotListener extends Testbase implements ITestListener {
 	public void onFinish(ITestContext context) {
 	}
 
-	public String takeScreenshot(ITestResult result,String screenshot ) throws IOException {
+	public String takeScreenshot(ITestResult result,String screenshot ) throws IOException, InterruptedException {
 		String image = "";
+		Thread.sleep(6000);
 			loadfile();
-			screenload = workspace + "/test-output" + Testsuite.timeStamp + "-"
+			screenload = workspace + "/"+System.getProperty("Suitename")+"-Suite" + Testsuite.timeStamp + "-"
 					+ System.getProperty("Client") + "/html/";
 			if (driver != null) {
 				try {
@@ -76,11 +77,11 @@ public class ScreenshotListener extends Testbase implements ITestListener {
 	public void upLoaadReport() throws IOException {
 		AmazonS3 s3 = new AmazonS3Client();
 		String bucketName = "boomerang-qa-report";
-		String folderName = "test-output" + Testsuite.timeStamp + "-" + System.getProperty("Client");//"test-output2017.04.05-internal3";
+		String folderName = System.getProperty("Suitename")+"-Suite" + Testsuite.timeStamp + "-" + System.getProperty("Client");//"test-output2017.04.05-internal3";
 		
 		File outputfolder = new File(
 				workspace +"/"+ folderName);
-		deleteFolder(bucketName, folderName, s3);
+	//	deleteFolder(bucketName, folderName, s3);
 		File[] listOfFiles = outputfolder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {

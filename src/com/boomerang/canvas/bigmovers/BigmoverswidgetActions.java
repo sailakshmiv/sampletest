@@ -1,4 +1,4 @@
-package com.boomerang.canvas.pageactions;
+package com.boomerang.canvas.bigmovers;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import com.boomerang.canvas.testbase.Testbase;
 
-public class Bigmovers extends Testbase{
+public class BigmoverswidgetActions extends Testbase{
 	
 	public String getBigmoversText() throws Exception {
 		 getBigmoversNavigation();
@@ -18,6 +18,18 @@ public class Bigmovers extends Testbase{
 	  public String getBigmoversAllText() throws Exception {
 		  getBigmoversNavigation();
 	    return getobject("bigmovers_all").getText();
+	  }
+	  public boolean getBigmoverdatanotavailable() throws Exception {
+		  getBigmoversNavigation();
+		  String xpath=prop.getProperty("bigmovers_not_availabledata");
+		  String []value=xpath.split("##");
+	      try{
+	    	  driver.findElement(By.xpath(value[1]));
+	    	  return true;
+	      }
+	      catch(NoSuchElementException e){
+	          return false;
+	      }
 	  }
 	  public String getBigmoversWinnnersText() throws Exception {
 		  getBigmoversNavigation();

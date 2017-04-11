@@ -32,14 +32,13 @@ public class Testbase {
 	
 public WebDriver getBrowser(String browser,String os) throws IOException{
 	
-		if(browser.toLowerCase().equals("chrome") && os.toLowerCase().equals("mac")){
+		if(browser.toLowerCase().equals("chrome") && os.toLowerCase().contains("mac")){
 			ChromeOptions chromeOptions = new ChromeOptions();
 			System.setProperty("webdriver.chrome.driver", workspace+"/src/com/boomerang/canvas/drivers/chromedriver");
 			driver= new ChromeDriver(chromeOptions);
 			return driver;
 		}
 		else if(browser.toLowerCase().equals("chrome") && os.toLowerCase().equals("windows")){
-			System.out.println("hello.................");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			System.setProperty("webdriver.chrome.driver", workspace+"/src/com/boomerang/canvas/drivers/chromedriver.exe");
 			driver= new ChromeDriver(chromeOptions);
@@ -57,16 +56,16 @@ public static void loadfile() throws IOException{
 	f=new File(workspace+"/src/com/boomerang/canvas/config/config.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
-	f=new File(workspace+"/src/com/boomerang/canvas/pagelocators/loginpage.properties");
+	f=new File(workspace+"/src/com/boomerang/canvas/bigmovers/bigmoverswidgetlocators.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
-	f=new File(workspace+"/src/com/boomerang/canvas/pagelocators/headerwidget.properties");
+	f=new File(workspace+"/src/com/boomerang/canvas/headerwidget/headerwidgetlocators.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
-	f=new File(workspace+"/src/com/boomerang/canvas/pagelocators/scoreboardwidget.properties");
+	f=new File(workspace+"/src/com/boomerang/canvas/login/loginpagelocators.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
-	f=new File(workspace+"/src/com/boomerang/canvas/pagelocators/bigmovers.properties");
+	f=new File(workspace+"/src/com/boomerang/canvas/scoreboard/scoreboardwidgetlocators.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
 }
@@ -104,7 +103,7 @@ public static List<WebElement> getLocators(String locator) throws Exception{
 	
 }
 public static WebElement getLocator(String locator) throws Exception{
-	WebDriverWait wait=new WebDriverWait(driver,1000);
+	WebDriverWait wait=new WebDriverWait(driver,100);
 	String locatortype=locator.split("##")[0];
 	String locatorvalue=locator.split("##")[1];
 	if(locatortype.toLowerCase().equals("id")){

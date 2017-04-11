@@ -1,0 +1,13 @@
+<XmltoJava name="Canvas_Automation">
+<suite suitename="HeaderWidget" classname="headerwidget.HeaderwidgetTestcases">
+	 <parameter name="Sending_startdate_enddate" testcase="sentDates" username="" password="" actualerrormessage="" startdate="11/21/2016" enddate="04/18/2017" text="" />
+ 	 <parameter name="Validate_HeaderWidget_TextPresent_For_Revenue" testcase="isHeaderRevenueTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="REVENUE" />
+ 	   <parameter name="Validate_HeaderWidget_Value_For_Revenue" testcase="getRevenueValueInDollars" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	  <parameter name="Validate_HeaderWidget_Value_For_Revenue_YOY" testcase="getRevenuePercentYoY" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_HeaderWidget_Value_For_Revenue_PVP" testcase="getRevenuePercentPvP" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	  <parameter name="Validate_HeaderWidget_TextPresent_For_Margin" testcase="isHeaderMarginTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" /> 
+	 <parameter name="Validate_HeaderWidget_Value_For_Margin" testcase="getMarginValueInDollars" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_HeaderWidget_Value_For_Margin_YOY" testcase="getMarginPercentYoY" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_HeaderWidget_Value_For_Margin_PVP" testcase="getMarginPercentPvP" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	</suite>  
+</XmltoJava>

@@ -1,16 +1,16 @@
-package com.boomerang.canvas.pageactions;
+package com.boomerang.canvas.headerwidget;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import com.boomerang.canvas.testbase.Testbase;
 
-public class Headerwidget extends Testbase {
+public class HeaderwidgetActions extends Testbase {
 
   
 
   public void sentDates(String startDate, String endDate) throws Exception {
-	  Thread.sleep(5000);
-  getobject("date_placeholder").click();
+	Thread.sleep(5000);
+	getobject("date_placeholder").click();
    WebElement startdate = getobject("start_date_text");
    startdate.clear();
    startdate.sendKeys(startDate);

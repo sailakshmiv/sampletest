@@ -10,7 +10,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class XmltoJava extends GenericClass {
      
 	private Suite[] suite;
+	private Testsuite[] testsuite;
 	private String name;
+	
+	
+	@XmlElement
+	public Testsuite[] getTestsuite() {
+		return testsuite;
+	}
+
+	public void setTestsuite(Testsuite[] testsuite) {
+		this.testsuite = testsuite;
+	}
 
 	@XmlElement
 	public Suite[] getSuite() {
@@ -20,7 +31,8 @@ public class XmltoJava extends GenericClass {
 	public void setSuite(Suite[] suite) {
 		this.suite = suite;
 	}
-
+	
+	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -28,7 +40,27 @@ public class XmltoJava extends GenericClass {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@XmlRootElement
+	public static class Testsuite {
+          private String suitesname;
 
+		@Override
+		public String toString() {
+			return "Testsuite [suitesname=" + suitesname + "]";
+		}
+		@XmlAttribute
+		public String getSuitesname() {
+			return suitesname;
+		}
+
+		public void setSuitesname(String suitesname) {
+			this.suitesname = suitesname;
+		}
+
+		
+
+		
+	}
 	@XmlRootElement
 	public static class Suite {
 		private Parameter[] parameter;
