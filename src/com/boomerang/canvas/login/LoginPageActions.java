@@ -2,9 +2,6 @@ package com.boomerang.canvas.login;
 
 import java.util.Iterator;
 import java.util.Set;
-
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import com.boomerang.canvas.testbase.Testbase;
@@ -118,6 +115,7 @@ public class LoginPageActions extends Testbase{
 			e.getMessage();
 		}
 	}
+		
 	/**
 	 * invalidLoginWithAccou : Performs 5 invalid login attempts and verifies
 	 * the account lock error message
@@ -144,5 +142,35 @@ public class LoginPageActions extends Testbase{
 	Assert.assertEquals(actualErrMsg, getobject("txt_login_err_msg").getText());
 	}
 	
-
+/*public void Favoritesbutton() {
+		try{
+			WebElement element= getobject("landingpage_favorites_button");
+			if (element.isDisplayed() && element.isEnabled()) {
+			    element.click();
+			    Assert.fail("Favorites button is in enabled state");
+			}
+			else{
+				Assert.assertTrue(true,"Favorites button is in disabled state");
+			}
+		}
+		catch(Exception e){
+			e.getMessage();
+		}
+	}
+public void Alertsbutton() {
+			try{
+				WebElement element=getobject("landingpage_alerts_button");
+				if (element.isDisplayed() && element.isEnabled()) {
+				    element.click();
+				    Assert.fail("Alerts button is in enabled state");
+				}
+				else{
+					Assert.assertTrue(true,"Alerts button is in disabled state");
+				}
+			}
+			catch(Exception e){
+				e.getMessage();
+			}
+			
+}*/
 }

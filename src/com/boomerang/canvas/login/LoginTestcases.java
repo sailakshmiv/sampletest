@@ -2,14 +2,12 @@ package com.boomerang.canvas.login;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-
 import org.openqa.selenium.TimeoutException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -73,19 +71,19 @@ public class LoginTestcases extends Testbase implements ITestListener{
 		report.flush();	
 		}
 	
-	@Parameters({"username","password","actualerrormessage"})
+	@Parameters({"actualerrormessage"})
 	@Test(description = "Valid login verification with valid credentials")
-	public void validLogin(String username,String password,String actualerrormessage) throws TimeoutException, Exception {
+	public void validLogin(String actualerrormessage) throws TimeoutException, Exception {
 		//skip(suiteName+depends);	
 		Reporter.log("======================Performing Login Test with valid credentials======================", true);
-		loginPage.login(username,password, "");
+		loginPage.login(System.getProperty("Username"), System.getProperty("Password"), "");
 		Reporter.log("======================Login Test with valid credentials completed successfully======================",true);
 	}
-	@Parameters({"username","password","actualerrormessage"})
+	@Parameters({"password","actualerrormessage"})
 	@Test(description = "Invalid login verification with valid username and empty password")
-	public void invalidLoginWithvalidUsernameEmptyPassword(String username,String password,String actualerrormessage) throws Exception {
+	public void invalidLoginWithvalidUsernameEmptyPassword(String password,String actualerrormessage) throws Exception {
 		Reporter.log("======================Performing Login Test with invalid credentials======================",true);
-		loginPage.login(username,password, actualerrormessage);
+		loginPage.login(System.getProperty("Username"),password, actualerrormessage);
 		Reporter.log("======================Login Test with invalid credentials completed successfully======================",true);
 	}
 	@Parameters({"username","password","actualerrormessage"})
@@ -95,6 +93,18 @@ public class LoginTestcases extends Testbase implements ITestListener{
 		loginPage.login(username,password, actualerrormessage);
 		Reporter.log("======================Login Test with invalid credentials completed successfully======================",true);
 	}
+	/*@Test(description = "Validating favorites button is in disabled state")
+	public void favoritesbutton() throws Exception {
+		Reporter.log("======================Validating favorites button disabled======================",true);
+		loginPage.Favoritesbutton();
+		Reporter.log("======================favorites button disabled validation action completed successfully======================",true);
+	}
+	@Test(description = "Validating alerts button is in disabled state")
+	public void alertsbutton() throws Exception {
+		Reporter.log("======================Validating alerts button disabled======================",true);
+		loginPage.Alertsbutton();
+		Reporter.log("======================alerts button disabled validation action completed successfully======================",true);
+	}*/
 	@Parameters({"username","password","actualerrormessage"})
 	@Test(description = "Invalid login verification with invalid username and invalid password")
 	public void invalidLoginWithInvalidUsernameinvalidPassword(String username,String password,String actualerrormessage) throws Exception {
@@ -159,9 +169,9 @@ public class LoginTestcases extends Testbase implements ITestListener{
 	}
 	@Parameters({"username","actualerrormessage"})
 	@Test(description = "Validating UserName with valid value")
-	public void forgetPasswordUserNameWithvalidValue(String username,String actualerrormessage) throws Exception {
+	public void forgetPasswordUserNameWithvalidUnregisteredValue(String username,String actualerrormessage) throws Exception {
 		Reporter.log("======================Username Name with Invalid value======================",true);
-		loginPage.forgetPasswordUserNameWithValidUserName(username,actualerrormessage);
+		loginPage.forgetPasswordUserNameWithEmptyValue(username,actualerrormessage);
 		Reporter.log("======================UserName text box validation completed successfully======================",true);
 	}
 	

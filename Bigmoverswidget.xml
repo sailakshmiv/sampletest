@@ -1,29 +1,29 @@
 <XmltoJava name="Canvas_Automation">
 <suite suitename="BigMovers" classname="bigmovers.BigmoverswidgetTestcases">
-	 <parameter name="Sending_startdate_enddate" testcase="sentDates" username="" password="" actualerrormessage="" startdate="11/21/2016" enddate="04/18/2017" text="" />
-	 <parameter name="Validate_BigMovers_TextPresent_For_BigMovers" testcase="isBigmoversTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="BIG MOVERS" />
+	 <parameter name="Sending_startdate_enddate" testcase="sentDates" username="" password="" actualerrormessage="" startdate="02/18/2017" enddate="02/18/2017" text="" />
+	  <parameter name="Validate_BigMovers_TextPresent_For_BigMovers" testcase="isBigmoversTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="BIG MOVERS" />
  	 <parameter name="Validate_BigMovers_TextPresent_For_All" testcase="isBigmoversAllTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="ALL" />
 	  <parameter name="Validate_BigMovers_TextPresent_For_Winners" testcase="isBigmoversWinnnersTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="WINNERS" />
 	 <parameter name="Validate_BigMovers_TextPresent_For_Losers" testcase="isBigmoversLosersTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="LOSERS" />
 	  <parameter name="Validate_BigMovers_TextPresent_For_Categories" testcase="isBigmoversCategoriesTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="CATEGORIES" /> 
 	 <parameter name="Validate_BigMovers_TextPresent_For_Brands" testcase="isBigmoversBrandsTextpresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="BRANDS" />
-	 <parameter name="Validate_BigMovers_Losers_All_Text_Data" testcase="getbigmoversallLosersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_BigMovers_Losers_All_Text_Data" testcase="getbigmoversallLosersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
  	  <parameter name="Validate_BigMovers_Winners_All_Text_Data" testcase="getbigmoversallWinnersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_Categories_Text_Data" testcase="getbigmoversCategoriesWinnersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+ 	<parameter name="Validate_BigMovers_Winners_Categories_Text_Data" testcase="getbigmoversCategoriesWinnersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
  	  <parameter name="Validate_BigMovers_Winners_Brands_Text_Data" testcase="getbigmoversBrandsWinnersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Losers_Categories_Text_Data" testcase="getbigmoversCategoriesLosersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	  <parameter name="Validate_BigMovers_Losers_Categories_Text_Data" testcase="getbigmoversCategoriesLosersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
  	  <parameter name="Validate_BigMovers_Losers_Brands_Text_Data" testcase="getbigmoversBrandsLosersdata" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	<parameter name="Validate_BigMovers_Losers_All_YOY_Data" testcase="getBigmoversLosersallYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Losers_Categories_YOY_Data" testcase="getBigmoversLoserscategoriesYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		<parameter name="Validate_BigMovers_Losers_All_YOY_Data" testcase="getBigmoversLosersallYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_BigMovers_Losers_Categories_YOY_Data" testcase="getBigmoversLoserscategoriesYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_BigMovers_Losers_Brands_YOY_Data" testcase="getBigmoversLosersbrandsYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_All_YOY_Data" testcase="getBigmoversWinnersallYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_Categories_YOY_Data" testcase="getBigmoversWinnerscategoriesYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_Brands_YOY_Data" testcase="getBigmoversWinnersbrandsYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Losers_All_PVP_Data" testcase="getBigmoversLosersallPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Losers_Categories_PVP_Data" testcase="getBigmoversLoserscategoriesPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Losers_Brands_PVP_Data" testcase="getBigmoversLosersbrandsPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_All_PVP_Data" testcase="getBigmoversWinnersallPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_Categories_PVP_Data" testcase="getBigmoversWinnerscategoriesPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validate_BigMovers_Winners_Brands_PVP_Data" testcase="getBigmoversWinnersbrandsPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+ <parameter name="Validate_BigMovers_Winners_All_YOY_Data" testcase="getBigmoversWinnersallYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+  <parameter name="Validate_BigMovers_Winners_Categories_YOY_Data" testcase="getBigmoversWinnerscategoriesYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_BigMovers_Winners_Brands_YOY_Data" testcase="getBigmoversWinnersbrandsYOYvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+   <parameter name="Validate_BigMovers_Losers_All_PVP_Data" testcase="getBigmoversLosersallPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		<parameter name="Validate_BigMovers_Losers_Categories_PVP_Data" testcase="getBigmoversLoserscategoriesPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		 <parameter name="Validate_BigMovers_Losers_Brands_PVP_Data" testcase="getBigmoversLosersbrandsPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	  <parameter name="Validate_BigMovers_Winners_All_PVP_Data" testcase="getBigmoversWinnersallPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_BigMovers_Winners_Categories_PVP_Data" testcase="getBigmoversWinnerscategoriesPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_BigMovers_Winners_Brands_PVP_Data" testcase="getBigmoversWinnersbrandsPVPvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 </suite>  
 </XmltoJava>

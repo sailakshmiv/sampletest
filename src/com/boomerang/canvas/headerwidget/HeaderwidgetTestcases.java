@@ -8,7 +8,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -24,8 +23,8 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 	Genericlib gl=new Genericlib();
 	HeaderwidgetActions hd=new HeaderwidgetActions();
 	ScreenshotListener sc=new ScreenshotListener();
-	 
-	 String headerwidgetfile = "/src/com/boomerang/canvas/testoutput/HeaderandScoreboard.json";
+	Headerwidgetapi hapi=new Headerwidgetapi();
+	 String headerwidgetfile = "/src/com/boomerang/canvas/testoutput/HeaderandWidget.json";
 
 	 @BeforeSuite
 	 public void login() throws Exception{
@@ -36,6 +35,7 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 				tb.getBrowser(System.getProperty("Browser"),System.getProperty("os.name"));
 				driver.get(System.getProperty("ClientURL"));
 				loginPage.login(System.getProperty("Username"), System.getProperty("Password"), "");			
+			hapi.getHeaderdata_from_api(headerwidgetfile,"getHeaderData","Headerwidget");	
 	 }
 	 
 	@Parameters({"suiteName","testcase"})
@@ -109,21 +109,21 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 		String revenuevalue = hd.getRevenueValueInDollars();
 		test.log(LogStatus.INFO,"", "Actual value : " + revenuevalue);
 		Double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","REVENUE");
-		String resrevenue1=gl.truncate(respop/1000000);
-		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
-		Assert.assertEquals(revenuevalue, "$"+resrevenue1 +"M");
+		String resrevenue1=gl.conversion(respop);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1);
+		Assert.assertEquals(revenuevalue, "$" + resrevenue1);
 	    }
 	@Test(description= "Verifying the Revenue YOY value from Header Widget across Revenue YOY value which is comming from Backend")
 	  public void getRevenuePercentYoY() throws Exception {
 		Reporter.log("======================get the revnue yoy value======================",true);
 		String yoy = hd.getRevenuePercentYoY();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
+		hapi.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_REVENUE");
 	    }
 	@Test(description= "Verifying the Revenue PVP value from Header Widget across Revenue PVP value which is comming from Backend")
 	  public void getRevenuePercentPvP() throws Exception {
 		Reporter.log("======================get the revnue pvp value======================",true);
 		String pvp=hd.getRevenuePercentPvP();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
+		hapi.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_REVENUE");
 	    }
 	@Parameters({"text"})
 	@Test(description= "Verifying the Margin text is present in header widget or not")
@@ -140,22 +140,22 @@ public class HeaderwidgetTestcases extends Testbase implements ITestListener{
 		String marginvalue = hd.getMarginValueInDollars();
 		test.log(LogStatus.INFO,"", "Actual value : " + marginvalue);
 		Double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","MARGIN");
-		String resrevenue1=gl.truncate(respop/1000000);
-		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1 +"M");
-		Assert.assertEquals(marginvalue, "$"+resrevenue1 +"M");
+		String resrevenue1=gl.conversion(respop);
+		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1);
+		Assert.assertEquals(marginvalue, "$"+resrevenue1);
 	    }
 
 	@Test(description= "Verifying the Margin YOY value from Header Widget across Margin YOY value which is comming from Backend")
 	  public void getMarginPercentYoY() throws Exception {
 		Reporter.log("======================get the margin yoy value======================",true);
 		String yoy = hd.getMarginPercentYoY();
-		gl.getYOYandPVPvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
+		hapi.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_MARGIN");
 	    }
 	@Test(description= "Verifying the Margin PVP value from Header Widget across Margin PVP value which is comming from Backend")
 	  public void getMarginPercentPvP() throws Exception {
 		Reporter.log("======================get the margin pvp value======================",true);
 		String pvp = hd.getMarginPercentPvP();
-		gl.getYOYandPVPvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
+		hapi.getYOYandPVPforheaderwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_MARGIN");
 	    }
 		
 	@Override

@@ -1,5 +1,10 @@
 package com.boomerang.canvas.scoreboard;
 
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
 import com.boomerang.canvas.testbase.Testbase;
 
 public class ScoreboardWidgetActions extends Testbase {
@@ -8,7 +13,9 @@ public class ScoreboardWidgetActions extends Testbase {
   public String MarginTextPresent() throws Exception {
     return getobject("margin_text").getText();
   }
-
+  public void Scoreboardbutton() throws Exception {
+	    getobject("scoreboard_button").click();
+	  }
   public String getMarginValue() throws Exception {
     return getobject("margin_value").getText();
   }
@@ -116,5 +123,152 @@ public class ScoreboardWidgetActions extends Testbase {
   public String getUnitsPerOrderPvPPercent() throws Exception {
     return getobject("units_per_order_percent_pvp").getText();
   }
+  // graph validation
+  public void checkgraphlink() throws Exception {
+    getobject("margin_graph_link").click();
+    Assert.assertEquals("cursorPointer", getobject("margin_graph_navigateback").getAttribute("class"));
+  }
+  public void checkgraphnaivateback() throws Exception {
+    getobject("margin_graph_navigateback").click();
+    Assert.assertEquals("dataLayer layer", getobject("margin_graph_link").getAttribute("class"));
+  }
+  public void PPIwidgetbutton() throws Exception {
+	    getobject("PPI_widget_button").click();
+	  }
+  public String GraphMarginTextPresent() throws Exception {
+	    return getobject("margin_text").getText();
+	  }
+	 
+	  public String getGraphMarginValue() throws Exception {
+	    return getobject("margin_value").getText();
+	  }
 
+	  public String getGraphMarginYoYPercent() throws Exception {
+	    return getobject("margin_percent_yoy").getText();
+	  }
+
+	  public String getGraphMargingPvPPercent() throws Exception {
+	    return getobject("margin_percent_pvp").getText();
+	  }
+
+	  public String isGraphRevenueTextPresent() throws Exception {
+	    return getobject("revenue_text").getText();
+	  }
+
+	  public String getGraphRevenueValue() throws Exception {
+	    return getobject("revenue_value").getText();
+	  }
+
+	  public String getGraphRevenueYoYPercent() throws Exception {
+	    return getobject("revenue_percent_yoy").getText();
+	  }
+
+	  public String getGraphRevenuePvPPercent() throws Exception {
+	    return getobject("revenue_percent_pvp").getText();
+	  }
+
+	  public String isGraphUnitsTextPresent() throws Exception {
+	    return getobject("units_text").getText();
+	  }
+
+	  public String getGraphUnitsValue() throws Exception {
+	    return getobject("units_sold_value").getText();
+	  }
+
+	  public String getGraphUnitsYoYPercent() throws Exception {
+	    return getobject("units_sold_percent_yoy").getText();
+	  }
+
+	  public String getGraphUnitsPvPPercent() throws Exception {
+	    return getobject("units_sold_percent_pvp").getText();
+	  }
+
+	  public String isGraphAvgSalePriceTextPresent() throws Exception {
+	    return getobject("avg_sale_price_text").getText();
+	  }
+
+	  public String getGraphAvgSalePriceValue() throws Exception {
+	    return getobject("avg_sale_price_value").getText();
+	  }
+
+	  public String getGraphAvgSalePriceYoYPercent() throws Exception {
+	    return getobject("avg_sale_price_percent_yoy").getText();
+	  }
+
+	  public String getGraphAvgSalePricePvPPercent() throws Exception {
+	    return getobject("avg_sale_price_percent_pvp").getText();
+	  }
+
+	  public String isGraphConversionPresent() throws Exception {
+	    return getobject("conversion_text").getText();
+	  }
+
+	  public String getGraphConversionValue() throws Exception {
+	    return getobject("conversion_value").getText();
+	  }
+
+	  public String getGraphConversionYoYPercent() throws Exception {
+	    return getobject("conversion_percent_yoy").getText();
+	  }
+
+	  public String getGraphConversionPvPPercent() throws Exception {
+	    return getobject("conversion_percent_pvp").getText();
+	  }
+
+	  public String isGraphPageViewsPresent() throws Exception {
+	    return getobject("pageviews_text").getText();
+	  }
+
+	  public String getGraphPageViewsValue() throws Exception {
+	    return getobject("pageviews_value").getText();
+	  }
+
+	  public String getGraphPageViewsYoYPercent() throws Exception {
+	    return getobject("pageviews_percent_yoy").getText();
+	  }
+
+	  public String getGraphPageViewsPvPPercent() throws Exception {
+	    return getobject("pageviews_percent_pvp").getText();
+	  }
+	  
+	  public String isGraphUnitsPerOrder() throws Exception {
+	    return getobject("units_per_order_text").getText();
+	  }
+
+	  public String getGraphUnitsPerOrderValue() throws Exception {
+	    return getobject("units_per_order_value").getText();
+	  }
+
+	  public String getGraphUnitsPerOrderYoYPercent() throws Exception {
+	    return getobject("units_per_order_percent_yoy").getText();
+	  }
+
+	  public String getGraphUnitsPerOrderPvPPercent() throws Exception {
+	    return getobject("units_per_order_percent_pvp").getText();
+	  }
+	  public String PPITextPresent() throws Exception {
+		    return getobject("ppi_ppiscore_text").getText();
+		  }
+		  public String PPIAvgvalue() throws Exception {
+			   return getobject("ppi_ppiscore_avgvalue").getText();
+			  }
+		  public String getavgyoyvalue() throws Exception {
+		    return getobject("ppi_ppiscore_avgyoyvalue").getText();
+		  }
+
+		  public String getavgpvpvalue() throws Exception {
+		    return getobject("ppi_ppiscore_avgpvpvalue").getText();
+		  }
+		  public List<WebElement> getallcompitatornames() throws Exception {
+			    return getobjects("ppi_ppiscore_competitornames");
+			  }
+		  public List<WebElement> getallcompitatorppivalues() throws Exception {
+			    return getobjects("ppi_ppiscore_competitor_ppivalue");
+			  }
+		  public List<WebElement> getallcompitatoryoyvalues() throws Exception {
+			    return getobjects("ppi_ppiscore_competitor_yoyvalue");
+			  }
+		  public List<WebElement> getallcompitatorpvpvalues() throws Exception {
+			    return getobjects("ppi_ppiscore_competitor_pvpvalue");
+			  }
 }
