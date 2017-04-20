@@ -11,7 +11,6 @@ import javax.xml.bind.JAXBException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.Reporter;
 import org.testng.TestNG;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlInclude;
@@ -109,8 +108,6 @@ public class Testsuite extends Testbase implements ITestListener{
 	}
 	public void suitetest() throws Exception{
 		report = new ExtentReports(workspace+"/"+System.getProperty("Suitename")+"-Suite"+ timeStamp +"-"+System.getProperty("Client")+"/ExtendedReports.html");
-		Reporter.log("Report link in S3 : ");
-		Reporter.log("https://console.aws.amazon.com/s3/buckets/boomerang-qa-report/"+System.getProperty("Suitename")+"-Suite"+ timeStamp +"-"+System.getProperty("Client")+"/ExtendedReports.html",true);
 		report.loadConfig(new File(workspace+"/extent-config.xml"));
 		report.addSystemInfo("Environment","QA-Sanity"); 
 		report.addSystemInfo("User Name","SAI"); 
@@ -119,27 +116,18 @@ public class Testsuite extends Testbase implements ITestListener{
 		TestNG tng=new TestNG();
 		test= new Testsuite();
 		tng.setOutputDirectory(System.getProperty("Suitename")+"-Suite"+timeStamp +"-"+System.getProperty("Client"));
-		//tng.addListener(test);
+		tng.addListener(test);
 		test.runTests(tng,System.getProperty("Suitename"));
 	}
 public static void main(String args[]) throws Exception{
 		loadfile();
 		Testsuite ts=new Testsuite();
 		Testbase tb=new Testbase();
-		System.out.println(System.getProperty("Browser"));
-	System.out.println(System.getProperty("ClientURL"));
-	System.out.println(System.getProperty("Env"));
-	System.out.println(System.getProperty("Build"));
-	System.out.println(System.getProperty("Groups"));
-	System.out.println(System.getProperty("Suitename"));
-	System.out.println(System.getProperty("Username"));
-	System.out.println(System.getProperty("Password"));
-	
+		
 		if(System.getProperty("Username")== null | System.getProperty("Password")== null | System.getProperty("Browser")== null | System.getProperty("ClientURL")== null | System.getProperty("Env")== null 
 				| System.getProperty("Build")== null | System.getProperty("Groups")== null | System.getProperty("Suitename")== null)
 		{
-		System.out.println(System.getProperty("ClientURL"));
-			
+		
 		System.setProperty("Browser", prop.getProperty("defaultBrowser"));
 		System.setProperty("ClientURL", prop.getProperty("defaultClientURL"));
 		System.setProperty("Env", prop.getProperty("defaultEnv"));
@@ -157,7 +145,7 @@ public static void main(String args[]) throws Exception{
 		driver.get(System.getProperty("ClientURL"));
 		ts.suitetest();
 		ScreenshotListener sl=new ScreenshotListener();
-		sl.upLoaadReport();
+		//sl.upLoaadReport();
 		driver.quit();
 }
 

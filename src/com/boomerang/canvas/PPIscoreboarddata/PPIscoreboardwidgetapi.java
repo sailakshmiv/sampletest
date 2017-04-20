@@ -63,13 +63,16 @@ public void getdata(List<WebElement> listvalues,String filename,String metrix,St
 		String expectedlist="";
 		
 		List<String> categories=getresponsesListStringdata(filename,metrix,metrixvalue);
-		
 		for(String l:categories){
+			
+			
+			if(l !=null){
+			
 			outer:
 			for(WebElement list:listvalues){
 			actuallist = list.getText().toLowerCase();
 			expectedlist = l.toLowerCase();
-			if(list.getText().toLowerCase().contains(l.toLowerCase())){
+			if(list.getText().toLowerCase().equals(l.toLowerCase())){
 				actuallist = list.getText().toLowerCase();
 				expectedlist = l.toLowerCase();
 				Testbase.test.log(LogStatus.INFO,"","Actual data : " +actuallist);
@@ -80,8 +83,10 @@ public void getdata(List<WebElement> listvalues,String filename,String metrix,St
 						continue;
 					}
 				}
-		Assert.assertEquals(actuallist, expectedlist);
+		
 			}	
+		}
+		Assert.assertEquals(actuallist, expectedlist);
 	}
 public List<Double> getresponsesListIntdata(String filename,String metrix,String value){
 	List<Double> listval=new ArrayList<Double>();
@@ -123,15 +128,17 @@ public void getIntdata(List<WebElement> listvalues,String filename,String metrix
 	String value;
 	String value1;
 	List<Double> categories=getresponsesListIntdata(filename,metrix,metrixvalue);
+	System.out.println("categories :" + categories);
 	for(Double l:categories){
 		value1=gl.truncate(l);
 		value=value1+"%";
 		outer:
 		for(WebElement list:listvalues){
-			
-		actuallist = list.getText();
-		expectedlist = value;
-		if(list.getText().contains(value)){
+			System.out.println("llllllll :" + list.getText());
+			System.out.println("llllllllssssssssssssss :" + value);
+		//actuallist = list.getText();
+		//expectedlist = value;
+		if(list.getText().equals(value)){
 			actuallist = list.getText();
 			expectedlist = value;
 			Testbase.test.log(LogStatus.INFO,"","Actual data : " +actuallist);
@@ -142,12 +149,16 @@ public void getIntdata(List<WebElement> listvalues,String filename,String metrix
 					continue;
 				}
 			}
-	Assert.assertEquals(actuallist, expectedlist);
+	
 		}	
+	Assert.assertEquals(actuallist, expectedlist);
 	if(actuallist=="" & expectedlist==""){
 		Assert.assertTrue(true, "No data avialble from backend");
+
 	}
 }
+
+
 
 public void getYOYandPVPforScoreboardwidgetvalues(String filename,String metrix,String value1,String value2) throws Exception{
 	Testbase.test.log(LogStatus.INFO,"", "Actual value : " + metrix);
@@ -170,11 +181,11 @@ public void getYOYandPVPforScoreboardwidgetvalues(String filename,String metrix,
 		for(Double l:categories){
 		
 		String value;
-		if(l.toString().contains("-")){
-		value=getHeaderLosersYOYandPVPvalues(l,metrix);
+		if(l.toString().contains("-") || l.toString().equals("0")){
+		value=getHeaderLosersYOYandPVPvalues(l,"");
 		}
 		else{
-		value=getHeaderWinnersYOYandPVPvalues(l,metrix);
+		value=getHeaderWinnersYOYandPVPvalues(l,"");
 		}
 		
 		outer:

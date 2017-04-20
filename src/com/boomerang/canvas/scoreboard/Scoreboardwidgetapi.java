@@ -21,7 +21,7 @@ public class Scoreboardwidgetapi extends Testbase{
 		String resyoy=gl.getresponsesStringdata(filename,value1,value2);
 		double resyoy1 = Double.parseDouble(resyoy);
 		String value;
-		if(resyoy.contains("-")){
+		if(resyoy.contains("-") || resyoy.equals("0")){
 		value=getHeaderLosersYOYandPVPvalues(resyoy1,value1);
 		}
 		else{
@@ -29,6 +29,20 @@ public class Scoreboardwidgetapi extends Testbase{
 		}
 		Testbase.test.log(LogStatus.INFO,"", "Expected value : " + value);
 		Assert.assertEquals(metrix, value);
+	}
+	public void getYOYandPVPforScoreboardsmallerwidgetvalues(String filename,String metrix,String value1,String value2) throws Exception{
+		Testbase.test.log(LogStatus.INFO,"", "Actual value : " + metrix);
+		String resyoy=gl.getresponsesStringdata(filename,value1,value2);
+		double resyoy1 = Double.parseDouble(resyoy);
+		String value;
+		if(resyoy.contains("-") || resyoy.equals("0")){
+		value=getHeaderLosersYOYandPVPvalues(resyoy1,"");
+		}
+		else{
+		value=getHeaderWinnersYOYandPVPvalues(resyoy1,"");
+		}
+		Testbase.test.log(LogStatus.INFO,"", "Expected value : " + value.trim());
+		Assert.assertEquals(metrix, value.trim());
 	}
 	public String getHeaderLosersYOYandPVPvalues(Double metrix,String metrix1) throws Exception{
 		Double value;

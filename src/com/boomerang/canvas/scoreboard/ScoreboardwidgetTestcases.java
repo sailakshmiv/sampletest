@@ -201,9 +201,6 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		String unit = sb.getUnitsValue();
 		test.log(LogStatus.INFO,"","Actaul value : " + unit);
 		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","UNITS");
-		/*String formattedvalue=gl.truncate(respop/1000000);
-		test.log(LogStatus.INFO,"", "Expected value :" + formattedvalue+"M");
-		Assert.assertEquals(unit, formattedvalue+"M");*/
 		String resrevenue1=gl.conversion(respop);
 		test.log(LogStatus.INFO,"", "Expected value : " + resrevenue1);
 		Assert.assertEquals(unit, resrevenue1);
@@ -214,14 +211,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard unit yoy value======================",true);
 		sb.Scoreboardbutton();
 		String yoy = sb.getUnitsYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
 	    }
 	@Test(description= "Verifying the Units PVP value from Scoreboard Widget across Units PVP value which is comming from Backend")
 	  public void getUnitsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard unit pvp value======================",true);
 		sb.Scoreboardbutton();
 		String pvp = sb.getUnitsPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
 	    }
 	
 	//####################### Avg sale price Test cases #########################################
@@ -252,14 +249,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard Avg sale price yoy value======================",true);
 		sb.Scoreboardbutton();
 		String avgsaleyoy = sb.getAvgSalePriceYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
 	    }
 	@Test(description= "Verifying the Avg sale price PVP value from Scoreboard Widget across Avg sale price PVP value which is comming from Backend")
 	  public void getAvgSalePricePvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Avg sale price pvp value======================",true);
 		sb.Scoreboardbutton();
 		String avgsalepvp = sb.getAvgSalePricePvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
 	    }
 	
 	//####################### Conversion Test cases #########################################
@@ -290,14 +287,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard conversion yoy value======================",true);
 		sb.Scoreboardbutton();
 		String conversionyoy = sb.getConversionYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
 	    }
 	@Test(description= "Verifying the Conversion PVP value from Scoreboard Widget across Conversion PVP value which is comming from Backend")
 	  public void getConversionPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion pvp value======================",true);
 		sb.Scoreboardbutton();
 		String conversionpvp = sb.getConversionPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
 	    }
 
 	//####################### PageView Test cases #########################################
@@ -331,14 +328,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard conversion yoy value======================",true);
 		sb.Scoreboardbutton();
 		String pageviewyoy = sb.getPageViewsYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
 	    }
 	@Test(description= "Verifying the Page views PVP value from Scoreboard Widget across Page views PVP value which is comming from Backend")
 	  public void getPageViewsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard conversion pvp value======================",true);
 		sb.Scoreboardbutton();
 		String pageviewpvp = sb.getPageViewsPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
 	    }
 	
 	//####################### Units per order Test cases #########################################
@@ -369,14 +366,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard units per order yoy value======================",true);
 		sb.Scoreboardbutton();
 		String unitsperoderyoy = sb.getUnitsPerOrderYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
 	    }
 	@Test(description= "Verifying the Units per order PVP value from Scoreboard Widget across Units per order PVP value which is comming from Backend")
 	  public void getUnitsPerOrderPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard units per order pvp value======================",true);
 		sb.Scoreboardbutton();
 		String unitsperoderpvp = sb.getUnitsPerOrderPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
 	    }
 	
 	//############################ margin graph link actions #############################
@@ -523,13 +520,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getGraphUnitsYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph unit yoy value======================",true);
 		String yoy = sb.getGraphUnitsYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,yoy,"YOY","YOY_UNITS");
 	    }
 	@Test(description= "Verifying the Graph Units PVP value from Scoreboard Widget across Units PVP value which is comming from Backend")
 	  public void getGraphUnitsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph unit pvp value======================",true);
 		String pvp = sb.getGraphUnitsPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pvp,"PVP","PVP_UNITS");
 	    }
 	
 	//####################### Avg sale price Test cases #########################################
@@ -557,13 +554,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getGraphAvgSalePriceYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph Avg sale price yoy value======================",true);
 		String avgsaleyoy = sb.getGraphAvgSalePriceYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
 	    }
 	@Test(description= "Verifying the Graph Avg sale price PVP value from Scoreboard Widget across Avg sale price PVP value which is comming from Backend")
 	  public void getGraphAvgSalePricePvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph Avg sale price pvp value======================",true);
 		String avgsalepvp = sb.getGraphAvgSalePricePvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
 	    }
 	
 	//####################### Conversion Test cases #########################################
@@ -591,13 +588,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getGraphConversionYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph conversion yoy value======================",true);
 		String conversionyoy = sb.getGraphConversionYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,conversionyoy,"YOY","YOY_CONVERSION");
 	    }
 	@Test(description= "Verifying the Graph Conversion PVP value from Scoreboard Widget across Conversion PVP value which is comming from Backend")
 	  public void getGraphConversionPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph conversion pvp value======================",true);
 		String conversionpvp = sb.getGraphConversionPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,conversionpvp,"PVP","PVP_CONVERSION");
 	    }
 
 	//####################### PageView Test cases #########################################
@@ -625,13 +622,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getGraphPageViewsYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph conversion yoy value======================",true);
 		String pageviewyoy = sb.getPageViewsYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pageviewyoy,"YOY","YOY_PAGEVIEWS");
 	    }
 	@Test(description= "Verifying the Graph Page views PVP value from Scoreboard Widget across Page views PVP value which is comming from Backend")
 	  public void getGraphPageViewsPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph conversion pvp value======================",true);
 		String pageviewpvp = sb.getGraphPageViewsPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,pageviewpvp,"PVP","PVP_PAGEVIEWS");
 	    }
 	
 	//####################### Units per order Test cases #########################################
@@ -659,13 +656,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 	  public void getGraphUnitsPerOrderYoYPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph units per order yoy value======================",true);
 		String unitsperoderyoy = sb.getGraphUnitsPerOrderYoYPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,unitsperoderyoy,"YOY","YOY_UNITS_PER_ORDER");
 	    }
 	@Test(description= "Verifying the Graph Units per order PVP value from Scoreboard Widget across Units per order PVP value which is comming from Backend")
 	  public void getGraphUnitsPerOrderPvPPercent() throws Exception {
 		Reporter.log("======================get the scoreboard Graph units per order pvp value======================",true);
 		String unitsperoderpvp = sb.getGraphUnitsPerOrderPvPPercent();
-		sapi.getYOYandPVPforScoreboardwidgetvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,unitsperoderpvp,"PVP","PVP_UNITS_PER_ORDER");
 	    }
 	@Parameters({"text"})
 	@Test(description= "Verifying the PPIScore text is present in Scoreboard Widget or not")

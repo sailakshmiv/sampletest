@@ -56,7 +56,10 @@ public class Bigmoverswidgetapi extends Testbase{
 			 
 		    JSONObject r = repo.getJSONObject(n);
 		    try{
-		    	
+		    boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    boolean yoy1 = r.isNull(yoy); //YOY
 		    boolean dimension5 = r.isNull(dimension); //DIM
 		    boolean pvp6 = r.isNull(pvp); //PVP
@@ -223,10 +226,43 @@ public class Bigmoverswidgetapi extends Testbase{
 		    }
 		    	
 		    }
+	 }
+	 else {
+		    boolean dimension5 = r.isNull(dimension); //DIM
+		    boolean pvp6 = r.isNull(pvp); //PVP
+		    
+		    if(!dimension5 && !pvp6){
+		    	repo3 = r.getJSONObject(dimension);
+		    	repo4 = r.getJSONObject(pvp);
+		     b1=repo3.isNull(catandbrand);
+		     b2=repo4.isNull(pvprevenue);
+				    if(!b1 && !b2){
+				    YOY=0;
+				    category =repo3.getString(catandbrand);
+				    PVP=repo4.getDouble(pvprevenue);
+				    if(!(String.valueOf(PVP).contains("-"))){
+				    	String yoy12="0";
+						String pvp1=getBigmoversWinnersYOYandPVPvalues(PVP);
+						    double pvp2 = Double.parseDouble(pvp1);
+						    double yoy2 = Double.parseDouble(yoy12);
+						    double sum=yoy2+pvp2;
+						    map.put(category, sum);
+				    	}
+				    else{
+				    	category =null;
+				    	YOY=(Double) null;
+				    	PVP=(Double) null;
+				    	 double sum=YOY+PVP;
+						    map.put(category, sum);
+				    }
+			
+				    }}
+	 }
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
 		}
+		System.out.println("map :" + map);
 		return map;
 
 	}
@@ -248,7 +284,10 @@ public class Bigmoverswidgetapi extends Testbase{
 			 
 		    JSONObject r = repo.getJSONObject(n);
 		    try{
-		    	
+		    	   boolean hasyoy=r.has(yoy);
+				    boolean hasdimension=r.has(dimension);
+				    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){  
 		    boolean yoy1 = r.isNull(yoy); //YOY
 		    boolean dimension5 = r.isNull(dimension); //DIM
 		    boolean pvp6 = r.isNull(pvp); //PVP
@@ -412,13 +451,47 @@ public class Bigmoverswidgetapi extends Testbase{
 			    	 double sum=YOY+PVP;
 					    map.put(category, sum);
 			    }
+		    	}
 		    }
 		    	
-		    }
+	 }
+	 
+	    else{
+		    boolean dimension5 = r.isNull(dimension); //DIM
+		    boolean pvp6 = r.isNull(pvp); //PVP
+		    
+		    if(!dimension5 && !pvp6){
+		    	repo3 = r.getJSONObject(dimension);
+		    	repo4 = r.getJSONObject(pvp);
+		     b1=repo3.isNull(catandbrand);
+		     b2=repo4.isNull(pvprevenue);
+				    if(!b1 && !b2){
+				    YOY=0;
+				    category =repo3.getString(catandbrand);
+				    PVP=repo4.getDouble(pvprevenue);
+				    if(String.valueOf(PVP).contains("-")){
+				    	String yoy12="0";
+						String pvp1=getBigmoversLosersYOYandPVPvalues(PVP);
+						    double pvp2 = Double.parseDouble(pvp1);
+						    double yoy2 = Double.parseDouble(yoy12);
+						    double sum=yoy2+pvp2;
+						    map.put(category, sum);
+				    	}
+				    else{
+				    	category =null;
+				    	YOY=(Double) null;
+				    	PVP=(Double) null;
+				    	 double sum=YOY+PVP;
+						    map.put(category, sum);
+				    }
+			
+				    }}
+	    }
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
 		}
+		System.out.println("map :" + map);
 		return map;
 	}
 	
@@ -629,8 +702,13 @@ public class Bigmoverswidgetapi extends Testbase{
 		JSONArray repo = temp1.getJSONArray("data");
 		for(int n = 0; n < repo.length(); n++)
 		{
+			
 		    JSONObject r = repo.getJSONObject(n);
 		    try{
+		    	boolean hasyoy=r.has(yoy);
+			    boolean hasdimension=r.has(dimension);
+			    boolean haspvp=r.has(pvp);
+		 if(hasyoy && hasdimension && haspvp){
 		    	repo2 = r.getJSONObject(yoy);
 		    	repo3 = r.getJSONObject(dimension);
 				    	List<String> categories=Alllosersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
@@ -656,6 +734,33 @@ public class Bigmoverswidgetapi extends Testbase{
 					    		}
 					    		}
 					    	}
+		 }
+		 else{
+			 //repo2 = "0";
+		    	repo3 = r.getJSONObject(dimension);
+				    	List<String> categories=Alllosersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
+					    	for(String list:categories){
+					    		boolean b= repo3.isNull(brandandcat);
+					    		if(list==null & b){
+					    			category=null;
+					    			PVP=0;
+									String pvp1="0";
+									    map.put(category, pvp1);
+					    		}
+					    		else if(b & list !=null){
+					    			continue;
+					    		}
+					    		else{
+					    			category =repo3.getString(brandandcat);
+					    			
+							    	if(category.equals(list)){
+							    		PVP=0;
+										String pvp1="0";
+										    map.put(category, pvp1);
+					    		}
+					    		}
+					    	}
+		 }
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
@@ -670,7 +775,12 @@ public class Bigmoverswidgetapi extends Testbase{
 		JSONArray repo7 = temp2.getJSONArray("data");
 		for(int n = 0; n < repo7.length(); n++)
 		{
+			
 		    JSONObject r = repo7.getJSONObject(n);
+			boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    try{
 		    	repo5 = r.getJSONObject(yoy);
 		    	repo6 = r.getJSONObject(dimension);
@@ -699,6 +809,36 @@ public class Bigmoverswidgetapi extends Testbase{
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
+	 }
+	 else{
+		 try{
+		    	repo6 = r.getJSONObject(dimension);
+				    	List<String> categories=Alllosersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
+					    	for(String list:categories){
+					    		boolean b= repo6.isNull(catandbrand);
+					    		if(list==null & b){
+					    			category1=null;
+					    			PVP1=0;
+									String pvp1="0";
+									    map.put(category1, pvp1);
+					    		}
+					    		else if(b & list !=null){
+					    			continue;
+					    		}
+					    		else{
+					    			category1 =repo6.getString(catandbrand);
+					    			
+							    	if(category1.equals(list)){
+							    		PVP1=0;
+										String pvp1="0";
+										    map.put(category1, pvp1);
+					    		}
+					    		}
+					    	}
+		    }catch(Exception e){
+		    	e.getMessage();
+		    }
+	 }
 		}
 		MyComparator1 comparator = new MyComparator1(map);
 
@@ -722,11 +862,16 @@ public class Bigmoverswidgetapi extends Testbase{
 	}
 	public void losersallyoyvalidation(List<WebElement> listvalues,String categoryfilename,String brandfilename,String metrix,String value,String value2,String value3,String value4,String value5,String value6){
 		String l="";
-		String values1;
+		String values1 = null;
 		List<String> categories=getLosersallyoydata(categoryfilename,brandfilename,metrix,value,value2,value3,value4,value5,value6);
 		String actualtext="";
 		for(String values:categories){
+			if(values=="0"){
+				values1="$"+"---"+" "+metrix;
+			}
+			else{
 			values1= "▼" +"$" +values +" "+ metrix;
+			}
 			outer:
 			for(WebElement list:listvalues){
 				l=values1;
@@ -822,7 +967,7 @@ public class Bigmoverswidgetapi extends Testbase{
 							    	if(category1.equals(list)){
 							    		PVP1=repo5.getDouble(pvprevenue);
 										String pvp1=getBigmoversWinnersYOYandPVPconversionPvalues(PVP1);
-										    map.put(category, pvp1);
+										    map.put(category1, pvp1);
 					    		}
 					    		}
 					    	}
@@ -836,6 +981,7 @@ public class Bigmoverswidgetapi extends Testbase{
 	    Map<String, String> newMap = new TreeMap<String, String>(comparator);
 	    newMap.putAll(map);
 	    Map<String, String> map1 = new HashMap<String, String>(newMap);
+	    int size1=newMap.size();
 	    int size=map1.size();
 	    if(size>=5){
 	    	size=5;
@@ -893,11 +1039,15 @@ public class Bigmoverswidgetapi extends Testbase{
 		for(int n = 0; n < repo.length(); n++)
 		{
 		    JSONObject r = repo.getJSONObject(n);
+		    boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    try{
 		    	repo2 = r.getJSONObject(yoy);
 		    	repo3 = r.getJSONObject(dimension);
 				    	List<String> categories=Allwinnersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
-					    	for(String list:categories){
+				    	for(String list:categories){
 					    		boolean b= repo3.isNull(brandandcat);
 					    		
 					    		if(list==null & b){
@@ -921,6 +1071,35 @@ public class Bigmoverswidgetapi extends Testbase{
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
+		}else{
+			try{
+		    	repo3 = r.getJSONObject(dimension);
+				    	List<String> categories=Allwinnersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
+				    	for(String list:categories){
+					    		boolean b= repo3.isNull(brandandcat);
+					    		
+					    		if(list==null & b){
+					    			category=null;
+					    			PVP=0;
+									String pvp1="0";
+									    map.put(category, pvp1);
+					    		}
+					    		else if(b & list !=null){
+					    			continue;
+					    		}
+					    		else{
+					    			category =repo3.getString(brandandcat);
+							    	if(category.equals(list)){
+							    		PVP=0;
+										String pvp1="0";
+										    map.put(category, pvp1);
+					    		}
+					    		}
+					    	}
+		    }catch(Exception e){
+		    	e.getMessage();
+		    }
+		}
 		}
 		String	jsonFile1 = Readjson.readFileAsString(workspace+catfilename);
 		double PVP1 = 0;
@@ -933,11 +1112,14 @@ public class Bigmoverswidgetapi extends Testbase{
 		for(int n = 0; n < repo7.length(); n++)
 		{
 		    JSONObject r = repo7.getJSONObject(n);
+		    boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    try{
 		    	repo5 = r.getJSONObject(yoy);
 		    	repo6 = r.getJSONObject(dimension);
 				    	List<String> categories=Allwinnersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
-				    	
 					    	for(String list:categories){
 					    		boolean b= repo6.isNull(catandbrand);
 					    		
@@ -955,7 +1137,7 @@ public class Bigmoverswidgetapi extends Testbase{
 							    	if(category1.equals(list)){
 							    		PVP1=repo5.getDouble(yoyrevenue);
 										String pvp1=getBigmoversWinnersYOYandPVPconversionPvalues(PVP1);
-										    map.put(category, pvp1);
+										    map.put(category1, pvp1);
 					    		}
 					    		}
 					    	}
@@ -963,7 +1145,37 @@ public class Bigmoverswidgetapi extends Testbase{
 		    	e.getMessage();
 		    }
 		}
-
+	 else{
+		  try{
+		    	repo6 = r.getJSONObject(dimension);
+				    	List<String> categories=Allwinnersvalidation( catfilename,brandfile,yoy,yoyrevenue,dimension,brandandcat,catandbrand,pvp,pvprevenue);
+					    	for(String list:categories){
+					    		boolean b= repo6.isNull(catandbrand);
+					    		
+					    		if(list==null & b){
+					    			category1=null;
+					    			PVP1=0;
+									String pvp1="0";
+									    map.put(category1, pvp1);
+					    		}
+					    		else if(b & list !=null){
+					    			continue;
+					    		}
+					    		else{
+					    			category1 =repo6.getString(catandbrand);
+							    	if(category1.equals(list)){
+							    		PVP1=0;
+										String pvp1="0";
+										    map.put(category1, pvp1);
+					    		}
+					    		}
+					    	}
+		    }catch(Exception e){
+		    	e.getMessage();
+		    }
+	 }
+		}
+	 
 		MyComparator1 comparator = new MyComparator1(map);
 
 	    Map<String, String> newMap = new TreeMap<String, String>(comparator);
@@ -990,7 +1202,12 @@ public class Bigmoverswidgetapi extends Testbase{
 		List<String> categories=getWinnersallyoydata(categoryfilename,brandfilename,metrix,value,value2,value3,value4,value5,value6);
 		String actualtext="";
 		for(String values:categories){
+			if(values=="0"){
+				values1="$"+"---"+" "+metrix;
+			}
+			else{
 			values1= "▲" +"$" +values +" "+ metrix;
+			}
 			outer:
 			for(WebElement list:listvalues){
 				l=values1;
@@ -1054,6 +1271,10 @@ public class Bigmoverswidgetapi extends Testbase{
 		for(int n = 0; n < repo.length(); n++)
 		{
 		    JSONObject r = repo.getJSONObject(n);
+		    boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    try{
 		    	
 		    	repo2 = r.getJSONObject(yoy);
@@ -1083,12 +1304,43 @@ public class Bigmoverswidgetapi extends Testbase{
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
+	 }else{
+		 try{
+		    	
+		    	repo3 = r.getJSONObject(dimension);
+		   
+				    	List<String> categories=getwinnersdata(filename,yoy,yoyrevenue,dimension,catandbrand,pvp,pvprevenue);
+					    	for(String list:categories){
+					    		boolean b= repo3.isNull(catandbrand);
+					    		if(list==null & b){
+					    			category=null;
+					    			YOY=0;
+							    	String yoy12="0";
+									    map.put(category, yoy12);
+					    		}
+					    		else if(b & list !=null){
+					    			continue;
+					    		}
+					    		else{
+					    			category =repo3.getString(catandbrand);
+							    	if(category.equals(list)){
+							    		YOY=0;
+								    	String yoy12="0";
+										    map.put(category, yoy12);
+					    		}
+					    		}
+					    	}
+		    }catch(Exception e){
+		    	e.getMessage();
+		    }
+	 }
 		}
 		MyComparator1 comparator = new MyComparator1(map);
 
 	    Map<String, String> newMap = new TreeMap<String, String>(comparator);
 	    newMap.putAll(map);
 	    Map<String, String> map1 = new HashMap<String, String>(newMap);
+	    int size1=newMap.size();
 	    int size=map1.size();
 	    if(size>=5){
 	    	size=5;
@@ -1110,8 +1362,11 @@ public class Bigmoverswidgetapi extends Testbase{
 		List<String> categories=getWinnersyoydata(filename,metrix,value,value2,value3,value4,value5);
 		String actualtext="";
 		for(String values:categories){
+			if(values=="0"){
+				values1="$"+"---"+" "+metrix;
+			}else{
 			values1= "▲" +"$" +values +" "+ metrix;
-			
+			}
 			outer:
 				
 			for(WebElement list:listvalues){
@@ -1239,6 +1494,10 @@ public class Bigmoverswidgetapi extends Testbase{
 		for(int n = 0; n < repo.length(); n++)
 		{
 		    JSONObject r = repo.getJSONObject(n);
+		    boolean hasyoy=r.has(yoy);
+		    boolean hasdimension=r.has(dimension);
+		    boolean haspvp=r.has(pvp);
+	 if(hasyoy && hasdimension && haspvp){
 		    try{
 		    	
 		    	repo2 = r.getJSONObject(yoy);
@@ -1269,6 +1528,37 @@ public class Bigmoverswidgetapi extends Testbase{
 		    }catch(Exception e){
 		    	e.getMessage();
 		    }
+	 }else{
+		 try{
+		    	
+		    	repo3 = r.getJSONObject(dimension);
+		   
+				    	List<String> categories=getlosersdata(filename,yoy,yoyrevenue,dimension,catandbrand,pvp,pvprevenue);
+				    	for(String list:categories){
+				    		boolean b= repo3.isNull(catandbrand);
+				    		if(list==null & b){
+				    			category=null;
+				    			YOY=0;
+						    	String yoy12="0";
+								    map.put(category, yoy12);
+				    		}
+				    		else if(b & list !=null){
+				    			continue;
+				    		}
+				    		else{
+				    			category =repo3.getString(catandbrand);
+						    	if(category.equals(list)){
+						    	YOY=0;
+						    	String yoy12="0";
+								    map.put(category, yoy12);
+				    		}
+				    		}
+				    	}
+				    	
+		    }catch(Exception e){
+		    	e.getMessage();
+		    }
+	 }
 		}
 		MyComparator1 comparator = new MyComparator1(map);
 
@@ -1296,7 +1586,12 @@ public class Bigmoverswidgetapi extends Testbase{
 		List<String> categories=getLosersyoydata(filename,metrix,value,value2,value3,value4,value5);
 		String actualtext="";
 		for(String values:categories){
+			if(values=="0"){
+				values1="$"+"---"+" "+metrix;
+			}
+			else{
 			values1= "▼" +"$" +values +" "+ metrix;
+			}
 			outer:
 			for(WebElement list:listvalues){
 				l=values1;
@@ -1485,17 +1780,20 @@ public class Bigmoverswidgetapi extends Testbase{
 		    Set<Entry<String, Double>> entrySet = map.entrySet();
 	        List<Entry<String, Double>> listOfentrySet = new ArrayList<Entry<String, Double>>(entrySet);
 	        int size=listOfentrySet.size();
-	        if(size>=5){
-	        	size =5;
-	        }
-	        else if(size<5){
-	        	size=size;
-	        }
+	       
 		    Collections.sort(listOfentrySet, new SortByValue());
-	        for(int i=0;i<size;i++){
+		    if(size>=5){
+	        for(int i=size-5;i<size;i++){
 	        	listOfentrySet.get(i).getKey();
 	        	 category.add(listOfentrySet.get(i).getKey());
 	        }
+		    }
+		    else{
+		    	 for(int i=0;i<size;i++){
+			        	listOfentrySet.get(i).getKey();
+			        	 category.add(listOfentrySet.get(i).getKey());
+			        }
+		    }
 	        return category;
 	       
 	}
@@ -1561,7 +1859,6 @@ public class Bigmoverswidgetapi extends Testbase{
 		for(String values:categories){
 			
 			outer:
-				
 			for(WebElement list:listvalues){
 				l=values;
 				actualtext=list.getText();
@@ -1676,17 +1973,19 @@ public class Bigmoverswidgetapi extends Testbase{
 	    Set<Entry<String, Double>> entrySet = map.entrySet();
         List<Entry<String, Double>> listOfentrySet = new ArrayList<Entry<String, Double>>(entrySet);
         int size=listOfentrySet.size();
-        if(size>=5){
-        	size=5;
-        }
-        else if(size<5){
-        	size=size;
-        }
-	    Collections.sort(listOfentrySet, new SortByValue());
-        for(int i=0;i<size;i++){
-        	listOfentrySet.get(i).getKey();
+   
+	   Collections.sort(listOfentrySet,new SortByValue());
+	    if(size>=5){
+        for(int i=size-5;i<size;i++){
         	 category1.add(listOfentrySet.get(i).getKey());
         }
+	    }
+	   else{
+	    	for(int i=0;i<size;i++){
+	        	listOfentrySet.get(i).getKey();
+	        	 category1.add(listOfentrySet.get(i).getKey());
+	        }
+	    }
         return category1;
 	}
 	public void Alllosersdatavalidation(List<WebElement> listvalues,String categoryfilename,String brandfilename,String yoy,String yoyrevenue,String dimension,String brand,String category,String pvp,String pvprevenue){
@@ -1739,12 +2038,12 @@ public class Bigmoverswidgetapi extends Testbase{
 			outer:
 				
 			for(WebElement list:listvalues){
-				l=values;
-				actualtext=list.getText();
+				l=values.toLowerCase();
+				actualtext=list.getText().toLowerCase();
 				if(values != null){
 							if(values.toLowerCase().equals(list.getText().toLowerCase())){
 								l=values;
-								actualtext=list.getText();
+								actualtext=list.getText().toLowerCase();
 								Testbase.test.log(LogStatus.INFO,"","Actual data : " +list.getText().toLowerCase());
 								Testbase.test.log(LogStatus.INFO,"","Expected data : " +l.toLowerCase());
 								break outer;
@@ -1755,7 +2054,7 @@ public class Bigmoverswidgetapi extends Testbase{
 				}
 				else{
 				if(list.getText().equals("")){
-					actualtext=list.getText();
+					actualtext=list.getText().toLowerCase();
 					 l="";
 				Testbase.test.log(LogStatus.INFO,"","Actual data : " +actualtext);
 				Testbase.test.log(LogStatus.INFO,"","Expected data : " +l);

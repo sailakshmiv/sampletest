@@ -2,6 +2,9 @@ package com.boomerang.canvas.headerwidget;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 import org.json.JSONException;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -20,7 +23,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class Headerwidgetapi extends Testbase{
 	Genericlib gl=new Genericlib();
-	
+	DecimalFormat format = new DecimalFormat();
 	public void getHeaderdata_from_api(String jsonfile,String filename,String inputfilename) throws JSONException {
 		
 	String endPoint=System.getProperty("Client");
@@ -84,6 +87,10 @@ public class Headerwidgetapi extends Testbase{
 		if(resyoy.contains("-")){
 		value=getHeaderLosersYOYandPVPvalues(resyoy1,value1);
 		}
+		else if(resyoy.equals("0")){
+			value="▼" + "\n"+"0"+"%" +" "+ value1;
+		}
+		
 		else{
 		value=getHeaderWinnersYOYandPVPvalues(resyoy1,value1);
 		}
@@ -106,7 +113,7 @@ public class Headerwidgetapi extends Testbase{
 		value1=Double.parseDouble(metrix.toString().replace("-", "").replaceAll(",", "").trim());
 		
 		}
-		 resrevenue1 =gl.conversioninpercent(value1);
+		 resrevenue1 =conversioninpercent(value1);
 			resrevenue1="▼" + "\n"+resrevenue1+"%" +" "+ metrix1;
 		
 		return resrevenue1;
@@ -127,9 +134,39 @@ public class Headerwidgetapi extends Testbase{
 		value1=Double.parseDouble(metrix.toString().replace("-", "").replaceAll(",", "").trim());
 		
 		}
-		 resrevenue1 =gl.conversioninpercent(value1);
+		 resrevenue1 =conversioninpercent(value1);
 		 
 			resrevenue1= "▲" + "\n"+resrevenue1+"%" +" "+ metrix1;
 		return resrevenue1;
-}	
+}
+	public String truncate(Double l) throws Exception{
+		
+		Double toBeTruncated = new Double(l);
+	    Double resrevenue1=new BigDecimal(toBeTruncated ).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        String formattedvalue = format.format(resrevenue1);
+        double value = Double.parseDouble(formattedvalue);
+		String number = String.valueOf(value);
+		String formattedvalue1 = number.substring(number.indexOf(".")).substring(1);
+		int x=formattedvalue1.length();
+		if(x==1){
+			formattedvalue=formattedvalue+"0";
+		}
+        return formattedvalue;
+	}
+	public String conversioninpercent(Double value1) throws Exception{
+		String resrevenue1;
+		if(value1>=0 && value1<1000){
+			resrevenue1=truncate(value1);
+		}
+		else if(value1>=1000 && value1<1000000){
+			resrevenue1=truncate(value1/1000) + "%";
+			}
+			else if(value1>=1000000 && value1<1000000000){
+				resrevenue1=truncate(value1/1000000) + "%";
+			}
+			else{
+				resrevenue1=truncate(value1/1000000000) + "%";
+			}
+		return resrevenue1;
+	}
 }

@@ -1,6 +1,6 @@
 <XmltoJava name="Canvas_Automation">
-   <testsuite suitesname="Login"/>
+  <!--   <testsuite suitesname="Login"/> -->
     <testsuite suitesname="Bigmoverswidget"/>
-   <testsuite suitesname="Headerwidget"/>
-    <testsuite suitesname="Scoreboardwidget"/> 
+  <!--  <testsuite suitesname="Headerwidget"/>
+    <testsuite suitesname="Scoreboardwidget"/>  -->
   </XmltoJava>

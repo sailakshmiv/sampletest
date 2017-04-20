@@ -172,8 +172,8 @@
       "type": "DATE",
       "topDimension": false
     },
-    "from": 1483142400000,
-    "to": 1490918400000,
+    "from": 1487376000000,
+    "to": 1487376000000,
     "pvpenabled": true,
     "yoyenabled": true,
     "timeSeriesEnabled": true
@@ -181,79 +181,135 @@
   "data": [
     {
       "DIMENSION": {
-        "competitor": "Amazon"
+        "competitor": "homedepot.com"
       },
       "STRENGTH": "NORMAL",
       "PVP": {
-        "PVP_TOTAL_SKUS": 30.0,
-        "PVP_MATCHED_SKUS": 30.0,
-        "PVP_PPI": 4.7,
-        "PVP_MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "PVP_TOTAL_SKUS": "0.00",
+        "MATCHED_SKUS": 1.00,
+        "DIFFERENCE_MARGIN": 0.0,
+        "PVP_MATCH": "0.00",
+        "PVP_PPI": "0.61",
+        "PPI": 100.0500,
+        "MATCH": 100.00,
+        "PVP_MATCHED_SKUS": "0.00",
+        "DIFFERENCE_REVENUE": 0.0
       },
       "RESULT": {
-        "TOTAL_SKUS": 30,
-        "MATCHED_SKUS": 30,
-        "PPI": 107,
-        "MATCH": 100
+        "TOTAL_SKUS": 1.00,
+        "MATCHED_SKUS": 1.00,
+        "PPI": 100.6600,
+        "MATCH": 100.00
       },
-      "TIMESERIES": []
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 1.00,
+          "MATCHED_SKUS": 1.00,
+          "PPI": 100.6600,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
     },
     {
       "DIMENSION": {
-        "competitor": "Walmart"
+        "competitor": "bedbathandbeyond.com"
       },
       "STRENGTH": "NORMAL",
       "PVP": {
-        "PVP_TOTAL_SKUS": 30.0,
-        "PVP_MATCHED_SKUS": 30.0,
-        "PVP_PPI": 5.1,
-        "PVP_MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "PVP_TOTAL_SKUS": "0.00",
+        "MATCHED_SKUS": 1.00,
+        "DIFFERENCE_MARGIN": 0.0,
+        "PVP_MATCH": "0.00",
+        "PVP_PPI": "-0.09",
+        "PPI": 98.5400,
+        "MATCH": 100.00,
+        "PVP_MATCHED_SKUS": "0.00",
+        "DIFFERENCE_REVENUE": 0.0
       },
       "RESULT": {
-        "TOTAL_SKUS": 30.0,
-        "MATCHED_SKUS": 30.0,
-        "PPI": 101.0,
-        "MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "MATCHED_SKUS": 1.00,
+        "PPI": 98.4500,
+        "MATCH": 100.00
       },
-      "TIMESERIES": []
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 1.00,
+          "MATCHED_SKUS": 1.00,
+          "PPI": 98.4500,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
     },
     {
       "DIMENSION": {
-        "competitor": "Newegg"
+        "competitor": "target.com"
       },
       "STRENGTH": "NORMAL",
       "PVP": {
-        "PVP_TOTAL_SKUS": 30.0,
-        "PVP_MATCHED_SKUS": 30.0,
-        "PVP_PPI": 3.2,
-        "PVP_MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "PVP_TOTAL_SKUS": "0.00",
+        "MATCHED_SKUS": 1.00,
+        "DIFFERENCE_MARGIN": 0.0,
+        "PVP_MATCH": "0.00",
+        "PVP_PPI": "-5.25",
+        "PPI": 116.4100,
+        "MATCH": 100.00,
+        "PVP_MATCHED_SKUS": "0.00",
+        "DIFFERENCE_REVENUE": 0.0
       },
       "RESULT": {
-        "TOTAL_SKUS": 30.0,
-        "MATCHED_SKUS": 30.0,
-        "PPI": 97.0,
-        "MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "MATCHED_SKUS": 1.00,
+        "PPI": 110.3000,
+        "MATCH": 100.00
       },
-      "TIMESERIES": []
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 1.00,
+          "MATCHED_SKUS": 1.00,
+          "PPI": 110.3000,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
     },
     {
       "DIMENSION": {
-        "competitor": "Officedepot"
+        "competitor": "amazon.com"
       },
       "STRENGTH": "NORMAL",
       "PVP": {
-        "PVP_TOTAL_SKUS": 30.0,
-        "PVP_MATCHED_SKUS": 30.0,
-        "PVP_PPI": 3.9,
-        "MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "PVP_TOTAL_SKUS": "0.00",
+        "MATCHED_SKUS": 1.00,
+        "DIFFERENCE_MARGIN": 0.0,
+        "PVP_MATCH": "0.00",
+        "PVP_PPI": "1.62",
+        "PPI": 97.8300,
+        "MATCH": 100.00,
+        "PVP_MATCHED_SKUS": "0.00",
+        "DIFFERENCE_REVENUE": 0.0
       },
       "RESULT": {
-        "TOTAL_SKUS": 30.0,
-        "MATCHED_SKUS": 30.0,
-        "PPI": 95.0,
-        "MATCH": 100.0
+        "TOTAL_SKUS": 1.00,
+        "MATCHED_SKUS": 1.00,
+        "PPI": 99.4100,
+        "MATCH": 100.00
       },
-      "TIMESERIES": []
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 1.00,
+          "MATCHED_SKUS": 1.00,
+          "PPI": 99.4100,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
     }
   ]
 }

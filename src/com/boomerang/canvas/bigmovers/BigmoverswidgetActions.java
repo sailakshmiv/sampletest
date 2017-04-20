@@ -117,7 +117,9 @@ public void BigmoversAllButton() throws Exception {
   }
   public List<WebElement> getBigmoversWinnerslist() throws Exception {
 	  getBigmoversNavigation();
+	  threadwait();
 	     List<WebElement> list=getobjects("bigmovers_winners_list");
+	     threadwait();
 	     return list;
 }
 public List<WebElement> getBigmoversWinnersyoylist() throws Exception {

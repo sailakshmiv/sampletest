@@ -1,7 +1,7 @@
 <XmltoJava name="Canvas_Automation">
 <suite suitename="ScoreboardWidget" classname="scoreboard.ScoreboardwidgetTestcases">
 	 <parameter name="Sending_startdate_enddate" testcase="sentDates" username="" password="" actualerrormessage="" startdate="11/21/2016" enddate="04/18/2017" text="" />
- 	   <parameter name="Validate_ScoreboardWidget_TextPresent_For_Margin" testcase="isMarginTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />    
+    <parameter name="Validate_ScoreboardWidget_TextPresent_For_Margin" testcase="isMarginTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />    
 	  <parameter name="Validate_ScoreboardWidget_Value_For_Margin" testcase="getMarginValue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Value_For_Margin_YOY" testcase="getMarginYoYPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Value_For_Margin_PVP" testcase="getMarginPVPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
@@ -29,10 +29,9 @@
  	<parameter name="Validate_ScoreboardWidget_Value_For_UnitsPerOrder" testcase="getUnitsPerOrderValue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
   	<parameter name="Validate_ScoreboardWidget_Value_For_UnitsPerOrder_YOY" testcase="getUnitsPerOrderYoYPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	<parameter name="Validate_ScoreboardWidget_Value_For_UnitsPerOrder_PVP" testcase="getUnitsPerOrderPvPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	
-	
+
 	   <parameter name="Validate_ScoreboardWidget_Margin_graphclickaction" testcase="checkgraphlink" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />    
-	  <parameter name="Validate_ScoreboardWidget_Margin_graphNavigateaction" testcase="checkgraphnaivateback" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+ <parameter name="Validate_ScoreboardWidget_Margin_graphNavigateaction" testcase="checkgraphnaivateback" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Graph_inside_margin_value" testcase="graphinsidemarginvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	<parameter name="Validate_ScoreboardWidget_Graph_inside_margin_text" testcase="graphinsidemargintext" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
 	
@@ -74,11 +73,11 @@
 	  <parameter name="	Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_yoy_value" testcase="getavgyoyvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
  	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_pvp_value" testcase="getavgpvpvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
   --> 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_Names" testcase="getallcompitatornames" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_ppi_values" testcase="getallcompitatorppivalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+<!-- 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_ppi_values" testcase="getallcompitatorppivalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	
 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_Compeiotor_yoy_values" testcase="getallcompitatoryoyvalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
   	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_pvp_values" testcase="getallcompitatorpvpvalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	
+	 -->
 	
 	</suite>
 </XmltoJava>
