@@ -11,7 +11,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -32,6 +31,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 	 DecimalFormat format = new DecimalFormat();
 	 BigmoverswidgetActions bm=new BigmoverswidgetActions();
 	 HeaderwidgetActions hd=new HeaderwidgetActions();
+	 Bigmoverswidgetapi bapi= new Bigmoverswidgetapi();
 	 
 	 String bigmoverscategoriesppi = "/src/com/boomerang/canvas/testoutput/BigMoversCategories.json";
 	 String bigmoversbrandsppi = "/src/com/boomerang/canvas/testoutput/BigMoversBrands.json";
@@ -45,7 +45,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 				tb.getBrowser(System.getProperty("Browser"),System.getProperty("os.name"));
 				driver.get(System.getProperty("ClientURL"));
 				loginPage.login(System.getProperty("Username"), System.getProperty("Password"), "");
-	
+				bapi.getHeaderdata_from_api(bigmoverscategoriesppi,"getBigMoverMerchByRevenue","Bigmovers");
+				bapi.getHeaderdata_from_api(bigmoversbrandsppi,"getBigMoverBrandByRevenue","Bigmovers");
 	 }
 	 
 	@Parameters({"suiteName","testcase"})
@@ -195,8 +196,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoversloserlist, bigmoversbrandsppi,"DIMENSION","brand");
-			gl.getdata(bigmoversloserlist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
+			bapi.Alllosersdatavalidation(bigmoversloserlist,bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getdata(bigmoversloserlist, bigmoversbrandsppi,"DIMENSION","brand");
+			//gl.getdata(bigmoversloserlist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
 		}
 			}
 	    }
@@ -214,7 +216,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoversloserlist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
+			bapi.categoriesandbrandlosersvalidation(bigmoversloserlist, bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
 		}
 			}
 	    }
@@ -231,7 +233,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoversloserlist, bigmoversbrandsppi,"DIMENSION","brand");
+			bapi.categoriesandbrandlosersvalidation(bigmoversloserlist, bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
 		}
 			}
 	    }
@@ -249,8 +251,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
-			gl.getdata(bigmoverswinnerslist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
+			bapi.Allwinnersdatavalidation(bigmoverswinnerslist,bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
+			//gl.getdata(bigmoverswinnerslist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
 		}
 			}
  }
@@ -267,7 +270,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoverswinnerslist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
+			bapi.categoriesandbrandwinnersvalidation(bigmoverswinnerslist, bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getdata(bigmoverswinnerslist, bigmoverscategoriesppi,"DIMENSION","merch_l1_name");
 		}
 			}
 }
@@ -284,7 +288,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
+			bapi.categoriesandbrandwinnersvalidation(bigmoverswinnerslist, bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
+			//gl.getdata(bigmoverswinnerslist, bigmoversbrandsppi,"DIMENSION","brand");
 		}
 			}
 }
@@ -303,8 +308,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLosersyoylist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
-			gl.getlist(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.losersallyoyvalidation(bigmoversLosersyoylist, bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getlist(bigmoversLosersyoylist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
+			//gl.getlist(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
 			}
 			}
 	}
@@ -321,7 +327,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.loseryoyvalidation(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getLosersyoyandpvplist(bigmoversLosersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -338,7 +345,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLosersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.loseryoyvalidation(bigmoversLosersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
+			
+			//gl.getLosersyoyandpvplist(bigmoversLosersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -358,8 +367,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
-			gl.getlist(bigmoversWinnersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.winnersallyoyvalidation(bigmoversWinnersyoylist, bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
 			}
 			}
 	}
@@ -376,7 +384,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.winnersyoyvalidation(bigmoversWinnersyoylist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -393,7 +401,7 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.winnersyoyvalidation(bigmoversWinnersyoylist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }	
@@ -411,8 +419,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLoserspvplist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE");
-			gl.getlist(bigmoversLoserspvplist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE");
+			bapi.losersallpvpvalidation(bigmoversLoserspvplist, bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//	gl.getlist(bigmoversLoserspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
+		//	gl.getlist(bigmoversLoserspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 	}
@@ -429,7 +438,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLoserspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
+			bapi.loserspvpvalidation(bigmoversLoserspvplist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getLosersyoyandpvplist(bigmoversLoserspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -446,7 +456,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversLoserspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
+			bapi.loserspvpvalidation(bigmoversLoserspvplist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
+			//gl.getLosersyoyandpvplist(bigmoversLoserspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -465,8 +476,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
-			gl.getlist(bigmoversWinnerspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
+			bapi.winnersallpvpvalidation(bigmoversWinnerspvplist, bigmoverscategoriesppi, bigmoversbrandsppi, "YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+		//	gl.getlist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
+		//	gl.getlist(bigmoversWinnerspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 	}
@@ -483,7 +495,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnerspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
+			bapi.winnerspvpvalidation(bigmoversWinnerspvplist,bigmoverscategoriesppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","merch_l1_name","PVP","DIFFERENCE_REVENUE");
+			//gl.getWinnersyoyandpvplist(bigmoversWinnerspvplist,bigmoverscategoriesppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }
@@ -501,7 +514,9 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 			test.log(LogStatus.INFO,"","No items present in this list");
 		}
 		else{
-			gl.getlist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
+			bapi.winnerspvpvalidation(bigmoversWinnerspvplist,bigmoversbrandsppi,"YOY","DIFFERENCE_REVENUE", "DIMENSION","brand","PVP","DIFFERENCE_REVENUE");
+			
+			//gl.getWinnersyoyandpvplist(bigmoversWinnerspvplist,bigmoversbrandsppi,"PVP","DIFFERENCE_REVENUE");
 			}
 			}
 }		

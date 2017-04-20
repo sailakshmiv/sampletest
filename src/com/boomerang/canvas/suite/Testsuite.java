@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.TestNG;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlInclude;
@@ -108,6 +109,8 @@ public class Testsuite extends Testbase implements ITestListener{
 	}
 	public void suitetest() throws Exception{
 		report = new ExtentReports(workspace+"/"+System.getProperty("Suitename")+"-Suite"+ timeStamp +"-"+System.getProperty("Client")+"/ExtendedReports.html");
+		Reporter.log("Report link in S3 : ");
+		Reporter.log("https://console.aws.amazon.com/s3/buckets/boomerang-qa-report/"+System.getProperty("Suitename")+"-Suite"+ timeStamp +"-"+System.getProperty("Client")+"/ExtendedReports.html",true);
 		report.loadConfig(new File(workspace+"/extent-config.xml"));
 		report.addSystemInfo("Environment","QA-Sanity"); 
 		report.addSystemInfo("User Name","SAI"); 
@@ -116,7 +119,7 @@ public class Testsuite extends Testbase implements ITestListener{
 		TestNG tng=new TestNG();
 		test= new Testsuite();
 		tng.setOutputDirectory(System.getProperty("Suitename")+"-Suite"+timeStamp +"-"+System.getProperty("Client"));
-		tng.addListener(test);
+		//tng.addListener(test);
 		test.runTests(tng,System.getProperty("Suitename"));
 	}
 public static void main(String args[]) throws Exception{
