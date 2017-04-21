@@ -68,6 +68,7 @@ public static void loadfile() throws IOException{
 	f=new File(workspace+"/src/com/boomerang/canvas/scoreboard/scoreboardwidgetlocators.properties");
 	fr=new FileInputStream(f);
 	prop.load(fr);
+	
 }
 public static List<WebElement> getLocators(String locator) throws Exception{
 	String locatortype=locator.split("##")[0];

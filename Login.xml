@@ -1,20 +1,25 @@
 <XmltoJava name="Canvas_Automation">
   <suite suitename="Login-TC" classname="login.LoginTestcases">
-  <parameter name="ValidLogin_ValidUsername_With_ValidPassword" testcase="validLogin" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 	<!--   <parameter name="Validation_For_Favorites_button" testcase="favoritesbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-		   <parameter name="Validation_For_Alerts_button" testcase="alertsbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 	  --> <parameter name="Validation_SwitchAction_From_PPMtoPO" testcase="switchfromPPMtoPO" username="" password="" actualerrormessage=""  startdate="" enddate="" text="Strategy Dashboard" />
-		   <parameter name="Validation_SwitchAction_From_POtoPPM" testcase="switchfromPOtoPPM" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
+ 	 <parameter name="ValidLogin_ValidUsername_With_ValidPassword" testcase="validLogin" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+ 	 <!--   <parameter name="Validation_For_Favorites_button" testcase="favoritesbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		 <parameter name="Validation_For_Alerts_button" testcase="alertsbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	-->  <parameter name="Validation_SwitchAction_From_PPMtoPO" testcase="switchfromPPMtoPO" username="" password="" actualerrormessage=""  startdate="" enddate="" text="Strategy Dashboard" />
+		 <parameter name="Validation_SwitchAction_From_POtoPPM" testcase="switchfromPOtoPPM" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
 	 	 <parameter name="Validation_Logout" testcase="LogOut" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 	 <parameter name="InvalidLogin_ValidUsername_With_EmptyPassword" testcase="invalidLoginWithvalidUsernameEmptyPassword" username="" password="" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />
 		 <parameter name="InvalidLogin_EmptyUsername_With_EmptyPassword" testcase="invalidLoginWithEmptyUsernameEmptyPassword" username="" password="" actualerrormessage="Username field is blank"  startdate="" enddate="" text="" />
 		  <parameter name="InvalidLogin_InvalidUsername_With_InvalidPassword" testcase="invalidLoginWithInvalidUsernameinvalidPassword" username="invalid" password="invalid" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />
-		 <!--   <parameter name="InvalidLogin_For_AccountLock" testcase="invalidLoginWithAccountLock" username="" password="" actualerrormessage="Username field is blank"  startdate="" enddate="" text="" />
-		   --><parameter name="Validation_ForgetPasswordButton" testcase="forgetPasswordlink" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	 <parameter name="Validation_ForgetPassword_With_EmptyUserName" testcase="forgetPasswordUserNameWithEmptyValue" username="" password="" actualerrormessage="Username can't be empty"  startdate="" enddate="" text="" />
+		<!--   <parameter name="InvalidLogin_For_AccountLock" testcase="invalidLoginWithAccountLock" username="" password="" actualerrormessage="Username field is blank"  startdate="" enddate="" text="" />
+		   --> <parameter name="Validation_ForgetPasswordButton" testcase="forgetPasswordlink" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	   <parameter name="Validation_ForgetPassword_With_EmptyUserName" testcase="forgetPasswordUserNameWithEmptyValue" username="" password="" actualerrormessage="Username can't be empty"  startdate="" enddate="" text="" />
 	 <parameter name="Validation_ForgetPassword_With_InvalidUsernName" testcase="forgetPasswordUserNameWithInvalidValue" username="Invalid" password="" actualerrormessage="No user exists with username"  startdate="" enddate="" text="" />
-	 <parameter name="Validation_ForgetPassword_With_Valid_Unregistered_UserName" testcase="forgetPasswordUserNameWithvalidUnregisteredValue" username="testingfb@boomerangcommerce.com" password="" actualerrormessage="No user exists with username"  startdate="" enddate="" text="" />
+	 <parameter name="Validation_ForgetPassword_With_Valid_Unregistered_UserName" testcase="forgetPasswordUserNameWithvalidUnregisteredValue" username="testingfb1@boomerangcommerce.com" password="" actualerrormessage="No user exists with username"  startdate="" enddate="" text="" />
 	 <parameter name="Validation_ForgetPassword_LoginButton" testcase="forgetPasswordPageLoginbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 
+	 <parameter name="Update_Password" testcase="updateforgetpassword" username="testingfp@boomerangcommerce.com" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validation_Login_With_old_password" testcase="validateloginwitholdpassword" username="testingfp@boomerangcommerce.com" password="" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />
+	 <parameter name="Validation_Login_With_new_password" testcase="validateloginwithnewpassword" username="testingfp@boomerangcommerce.com" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validation_Of_change_Password_With_UsedLink" testcase="changepasswordusingalreadyusedresetpasswordlink" username="testingfp@boomerangcommerce.com" password="" actualerrormessage="This link is either expired or has already been used. Please send another request to change your password."  startdate="" enddate="" text="" />
+	
 	  </suite>  
 </XmltoJava>

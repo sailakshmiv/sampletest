@@ -174,7 +174,34 @@ public class LoginTestcases extends Testbase implements ITestListener{
 		loginPage.forgetPasswordUserNameWithEmptyValue(username,actualerrormessage);
 		Reporter.log("======================UserName text box validation completed successfully======================",true);
 	}
-	
+	@Parameters({"username"})
+	@Test(description = "Updating the password")
+	public void updateforgetpassword(String username) throws Exception {
+		Reporter.log("======================updating the username======================",true);
+		loginPage.updateforgetpassword(username);
+		Reporter.log("======================updated username successfully======================",true);
+	}
+	@Parameters({"username","actualerrormessage"})
+	@Test(description = "validating the login with old password after changed the password")
+	public void validateloginwitholdpassword(String username,String actualerrormessage) throws Exception {
+		Reporter.log("======================validating the login with old password ======================",true);
+		loginPage.validateloginwitholdpassword(username,actualerrormessage);
+		Reporter.log("======================validated the login with old password successfully======================",true);
+	}
+	@Parameters({"username"})
+	@Test(description = "validating the login with new password after changed the password")
+	public void validateloginwithnewpassword(String username) throws Exception {
+		Reporter.log("======================validating the login with new password======================",true);
+		loginPage.validateloginwithnewpassword(username);
+		Reporter.log("======================validated the login with new password successfully======================",true);
+	}
+	@Parameters({"username","actualerrormessage"})
+	@Test(description = "validating the already used reset password link its allowing to change password")
+	public void changepasswordusingalreadyusedresetpasswordlink(String username,String actualerrormessage) throws Exception {
+		Reporter.log("======================validating the already used reset password link its allowing to change password======================",true);
+		loginPage.changepasswordusingalreadyusedresetpasswordlink(username,actualerrormessage);
+		Reporter.log("======================change password using the used reset password link action completed successfully======================",true);
+	}
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
