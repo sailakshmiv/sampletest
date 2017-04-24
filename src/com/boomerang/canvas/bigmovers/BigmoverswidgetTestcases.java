@@ -45,8 +45,8 @@ public class BigmoverswidgetTestcases extends Testbase implements ITestListener{
 				tb.getBrowser(System.getProperty("Browser"),System.getProperty("os.name"));
 				driver.get(System.getProperty("ClientURL"));
 				loginPage.login(System.getProperty("Username"), System.getProperty("Password"), "");
-				bapi.getHeaderdata_from_api(bigmoverscategoriesppi,"getBigMoverMerchByRevenue","Bigmovers");
-				bapi.getHeaderdata_from_api(bigmoversbrandsppi,"getBigMoverBrandByRevenue","Bigmovers");
+				bapi.getBigmoversdata_from_api(bigmoverscategoriesppi,"getBigMoverMerchByRevenue","Bigmovers");
+				bapi.getBigmoversdata_from_api(bigmoversbrandsppi,"getBigMoverBrandByRevenue","Bigmovers");
 	 }
 	 
 	@Parameters({"suiteName","testcase"})

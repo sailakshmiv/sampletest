@@ -180,33 +180,40 @@
   },
   "data": [
     {
+      "DIMENSION": {},
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 0.00,
+        "PPI": 0.0000,
+        "MATCH": 0.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 0.00,
+          "PPI": 0.0000,
+          "creation_date": 1487376000000,
+          "MATCH": 0.00
+        }
+      ]
+    },
+    {
       "DIMENSION": {
-        "competitor": "homedepot.com"
+        "competitor": "Storesupply"
       },
       "STRENGTH": "NORMAL",
-      "PVP": {
-        "TOTAL_SKUS": 1.00,
-        "PVP_TOTAL_SKUS": "0.00",
-        "MATCHED_SKUS": 1.00,
-        "DIFFERENCE_MARGIN": 0.0,
-        "PVP_MATCH": "0.00",
-        "PVP_PPI": "0.61",
-        "PPI": 100.0500,
-        "MATCH": 100.00,
-        "PVP_MATCHED_SKUS": "0.00",
-        "DIFFERENCE_REVENUE": 0.0
-      },
       "RESULT": {
-        "TOTAL_SKUS": 1.00,
-        "MATCHED_SKUS": 1.00,
-        "PPI": 100.6600,
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 141.5800,
         "MATCH": 100.00
       },
       "TIMESERIES": [
         {
-          "TOTAL_SKUS": 1.00,
-          "MATCHED_SKUS": 1.00,
-          "PPI": 100.6600,
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 141.5800,
           "creation_date": 1487376000000,
           "MATCH": 100.00
         }
@@ -214,32 +221,20 @@
     },
     {
       "DIMENSION": {
-        "competitor": "bedbathandbeyond.com"
+        "competitor": "Webstaurantstore"
       },
       "STRENGTH": "NORMAL",
-      "PVP": {
-        "TOTAL_SKUS": 1.00,
-        "PVP_TOTAL_SKUS": "0.00",
-        "MATCHED_SKUS": 1.00,
-        "DIFFERENCE_MARGIN": 0.0,
-        "PVP_MATCH": "0.00",
-        "PVP_PPI": "-0.09",
-        "PPI": 98.5400,
-        "MATCH": 100.00,
-        "PVP_MATCHED_SKUS": "0.00",
-        "DIFFERENCE_REVENUE": 0.0
-      },
       "RESULT": {
-        "TOTAL_SKUS": 1.00,
-        "MATCHED_SKUS": 1.00,
-        "PPI": 98.4500,
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 144.3600,
         "MATCH": 100.00
       },
       "TIMESERIES": [
         {
-          "TOTAL_SKUS": 1.00,
-          "MATCHED_SKUS": 1.00,
-          "PPI": 98.4500,
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 144.3600,
           "creation_date": 1487376000000,
           "MATCH": 100.00
         }
@@ -247,32 +242,20 @@
     },
     {
       "DIMENSION": {
-        "competitor": "target.com"
+        "competitor": "Wbmason"
       },
       "STRENGTH": "NORMAL",
-      "PVP": {
-        "TOTAL_SKUS": 1.00,
-        "PVP_TOTAL_SKUS": "0.00",
-        "MATCHED_SKUS": 1.00,
-        "DIFFERENCE_MARGIN": 0.0,
-        "PVP_MATCH": "0.00",
-        "PVP_PPI": "-5.25",
-        "PPI": 116.4100,
-        "MATCH": 100.00,
-        "PVP_MATCHED_SKUS": "0.00",
-        "DIFFERENCE_REVENUE": 0.0
-      },
       "RESULT": {
-        "TOTAL_SKUS": 1.00,
-        "MATCHED_SKUS": 1.00,
-        "PPI": 110.3000,
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 84.8800,
         "MATCH": 100.00
       },
       "TIMESERIES": [
         {
-          "TOTAL_SKUS": 1.00,
-          "MATCHED_SKUS": 1.00,
-          "PPI": 110.3000,
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 84.8800,
           "creation_date": 1487376000000,
           "MATCH": 100.00
         }
@@ -280,32 +263,209 @@
     },
     {
       "DIMENSION": {
-        "competitor": "amazon.com"
+        "competitor": "Uline"
       },
       "STRENGTH": "NORMAL",
-      "PVP": {
-        "TOTAL_SKUS": 1.00,
-        "PVP_TOTAL_SKUS": "0.00",
-        "MATCHED_SKUS": 1.00,
-        "DIFFERENCE_MARGIN": 0.0,
-        "PVP_MATCH": "0.00",
-        "PVP_PPI": "1.62",
-        "PPI": 97.8300,
-        "MATCH": 100.00,
-        "PVP_MATCHED_SKUS": "0.00",
-        "DIFFERENCE_REVENUE": 0.0
-      },
       "RESULT": {
-        "TOTAL_SKUS": 1.00,
-        "MATCHED_SKUS": 1.00,
-        "PPI": 99.4100,
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 103.6000,
         "MATCH": 100.00
       },
       "TIMESERIES": [
         {
-          "TOTAL_SKUS": 1.00,
-          "MATCHED_SKUS": 1.00,
-          "PPI": 99.4100,
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 103.6000,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Target"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 105.0300,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 105.0300,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Hayneedle"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 105.0000,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 105.0000,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Costco"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 109.4500,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 109.4500,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Officedepot"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 90.8600,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 90.8600,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "ZoroTools"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 0.0000,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 0.0000,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Amazon"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 110.1400,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 110.1400,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Bestbuy"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 89.8900,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 89.8900,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Walmart"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 111.6600,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 111.6600,
+          "creation_date": 1487376000000,
+          "MATCH": 100.00
+        }
+      ]
+    },
+    {
+      "DIMENSION": {
+        "competitor": "Newegg"
+      },
+      "STRENGTH": "NORMAL",
+      "RESULT": {
+        "TOTAL_SKUS": 2.00,
+        "MATCHED_SKUS": 2.00,
+        "PPI": 105.8700,
+        "MATCH": 100.00
+      },
+      "TIMESERIES": [
+        {
+          "TOTAL_SKUS": 2.00,
+          "MATCHED_SKUS": 2.00,
+          "PPI": 105.8700,
           "creation_date": 1487376000000,
           "MATCH": 100.00
         }

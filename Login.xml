@@ -1,9 +1,7 @@
 <XmltoJava name="Canvas_Automation">
   <suite suitename="Login-TC" classname="login.LoginTestcases">
  	 <parameter name="ValidLogin_ValidUsername_With_ValidPassword" testcase="validLogin" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
- 	 <!--   <parameter name="Validation_For_Favorites_button" testcase="favoritesbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-		 <parameter name="Validation_For_Alerts_button" testcase="alertsbutton" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-	-->  <parameter name="Validation_SwitchAction_From_PPMtoPO" testcase="switchfromPPMtoPO" username="" password="" actualerrormessage=""  startdate="" enddate="" text="Strategy Dashboard" />
+ 	  <parameter name="Validation_SwitchAction_From_PPMtoPO" testcase="switchfromPPMtoPO" username="" password="" actualerrormessage=""  startdate="" enddate="" text="Strategy Dashboard" />
 		 <parameter name="Validation_SwitchAction_From_POtoPPM" testcase="switchfromPOtoPPM" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
 	 	 <parameter name="Validation_Logout" testcase="LogOut" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 	 <parameter name="InvalidLogin_ValidUsername_With_EmptyPassword" testcase="invalidLoginWithvalidUsernameEmptyPassword" username="" password="" actualerrormessage="Username/Password is not correct. Maximum 5 retries allowed"  startdate="" enddate="" text="" />

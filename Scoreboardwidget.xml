@@ -1,8 +1,9 @@
 <XmltoJava name="Canvas_Automation">
 <suite suitename="ScoreboardWidget" classname="scoreboard.ScoreboardwidgetTestcases">
 	 <parameter name="Sending_startdate_enddate" testcase="sentDates" username="" password="" actualerrormessage="" startdate="11/21/2016" enddate="04/18/2017" text="" />
-    <parameter name="Validate_ScoreboardWidget_TextPresent_For_Margin" testcase="isMarginTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />    
+  <parameter name="Validate_ScoreboardWidget_TextPresent_For_Margin" testcase="isMarginTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />    
 	  <parameter name="Validate_ScoreboardWidget_Value_For_Margin" testcase="getMarginValue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_ScoreboardWidget_Graph_For_Margin" testcase="isMarginGraphPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Value_For_Margin_YOY" testcase="getMarginYoYPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Value_For_Margin_PVP" testcase="getMarginPVPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	<parameter name="Validate_ScoreboardWidget_TextPresent_For_Revenue" testcase="isRevenueTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="REVENUE" />
@@ -31,7 +32,7 @@
 	<parameter name="Validate_ScoreboardWidget_Value_For_UnitsPerOrder_PVP" testcase="getUnitsPerOrderPvPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 
 	   <parameter name="Validate_ScoreboardWidget_Margin_graphclickaction" testcase="checkgraphlink" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />    
- <parameter name="Validate_ScoreboardWidget_Margin_graphNavigateaction" testcase="checkgraphnaivateback" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+   <parameter name="Validate_ScoreboardWidget_Margin_graphNavigateaction" testcase="checkgraphnaivateback" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	 <parameter name="Validate_ScoreboardWidget_Graph_inside_margin_value" testcase="graphinsidemarginvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	<parameter name="Validate_ScoreboardWidget_Graph_inside_margin_text" testcase="graphinsidemargintext" username="" password="" actualerrormessage=""  startdate="" enddate="" text="MARGIN" />
 	
@@ -68,12 +69,34 @@
   	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_Value_For_UnitsPerOrder_YOY" testcase="getGraphUnitsPerOrderYoYPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_Value_For_UnitsPerOrder_PVP" testcase="getGraphUnitsPerOrderPvPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	
-	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_Value_For_PPITextPresent" testcase="PPITextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="PPI Score" />
-<!-- 	  <parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_value" testcase="PPIAvgvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		<parameter name="Validate_ScoreboardWidget_Graph_inside_AverageSalepricebutton_added" testcase="isMarginGraphAddonbuttonforAvgSalePrice" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		<parameter name="Validate_ScoreboardWidget_Graph_inside_AverageSalepricebutton_isdisabled_Once_Available_under_SmallWidwget" testcase="validatebuttonisdisabledforAvgSalePrice" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+		<parameter name="Validate_ScoreboardWidget_Graph_SmallWidget_AverageSalePrice_TextPresent" testcase="isMarginGraphAddonAvgSalePriceTextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="AVG SALE PRICE" />    
+	  <parameter name="Validate_ScoreboardWidget_Graph_SmallWidget_AverageSalePrice_Value" testcase="getMarginGraphAddonAvgSalePriceValue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_ScoreboardWidget_Graph_SmallWidget_AverageSalePrice_YOY_value" testcase="getMarginGraphAddonAvgSalePriceYoYPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 <parameter name="Validate_ScoreboardWidget_Graph_SmallWidget_AverageSalePrice_PVP_value" testcase="getMArginGraphAddonAvgSalePricePvPPercent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_ScoreboardWidget_Graph_SmallWidget_AverageSalePrice_isclosing_from_SmallWidget" testcase="closingtheaveragesalepricesmallwidget" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_Value_For_PPITextPresent" testcase="PPITextPresent" username="" password="" actualerrormessage=""  startdate="" enddate="" text="PPI Score" />
+--><!-- 	  <parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_value" testcase="PPIAvgvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	  <parameter name="	Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_yoy_value" testcase="getavgyoyvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
  	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_AveragePPI_pvp_value" testcase="getavgpvpvalue" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-  --> 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_Names" testcase="getallcompitatornames" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
-<!-- 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_ppi_values" testcase="getallcompitatorppivalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_Names" testcase="getallcompitatornames" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
+	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_ppi_values" testcase="getallcompitatorppivalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
 	
 	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_Compeiotor_yoy_values" testcase="getallcompitatoryoyvalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />
   	<parameter name="Validate_ScoreboardWidget_Graph_inside_CubePPI_All_competitor_pvp_values" testcase="getallcompitatorpvpvalues" username="" password="" actualerrormessage=""  startdate="" enddate="" text="" />

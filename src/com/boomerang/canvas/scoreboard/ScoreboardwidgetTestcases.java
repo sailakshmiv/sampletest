@@ -118,6 +118,13 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		test.log(LogStatus.INFO,"","Expected data :" + text);
 		Assert.assertEquals(margintext, text);
 	    }
+	@Test(description= "Verifying the Margin graph is present in Scoreboard Widget or not")
+	  public void isMarginGraphPresent() throws Exception {
+		Reporter.log("======================get the scoreboard margin graph ======================",true);
+		sb.Scoreboardbutton();
+		boolean margintext = sb.getthegraphelement();
+		Assert.assertTrue(margintext);
+	    }
 	@Test(description= "Verifying the Margin value from Scoreboard Widget across Margin value which is comming from Backend")
 	  public void getMarginValue() throws Exception {
 		Reporter.log("======================get the scoreboard margin value======================",true);
@@ -401,6 +408,14 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		String resrevenue1=gl.conversion(respop);
 		test.log(LogStatus.INFO,"", "Expected value : " + "$"+resrevenue1);
 		Assert.assertEquals(marginvalue, "$"+resrevenue1);
+	}
+	@Test(description= "Verifying the graph values inside margin graph page")
+	  public void graphtooltipdata() throws Exception {
+		Reporter.log("======================Validating the margin TEX inside margin graph page======================",true);
+		sb.graphtooltipdata();
+		//test.log(LogStatus.INFO,"","Actual data :" + margintext);
+		//test.log(LogStatus.INFO,"","Expected data :" + text);
+		//Assert.assertEquals(margintext, text);
 	}
 	@Parameters("text")
 	@Test(description= "Verifying the margin text inside margin graph page")
@@ -718,6 +733,53 @@ public class ScoreboardwidgetTestcases extends Testbase implements ITestListener
 		Reporter.log("======================get the scoreboard getallcompitator pvp values ======================",true);
 		List<WebElement> pvp = sb.getallcompitatorpvpvalues();
 		papi.getYOYandPVPforPPIScoreboardwidgetvalues(pvp,PPIwidgetfile,"PVP","PVP_PPI");
+	    }
+	//================= Average sale price samll widget data ===================================
+	@Test(description= "Verifying the Average sale price addon button is adding the under in Margin graph page")
+	  public void isMarginGraphAddonbuttonforAvgSalePrice() throws Exception {
+		Reporter.log("======================get the scoreboard getallcompitator pvp values ======================",true);
+		sb.isMarginGraphAddonbuttonforAvgSalePrice();
+	    }
+	@Test(description= "Verifying the Average sale price addon button is adding the under in Margin graph page")
+	  public void validatebuttonisdisabledforAvgSalePrice() throws Exception {
+		Reporter.log("======================get the scoreboard getallcompitator pvp values ======================",true);
+		boolean b = sb.validatebuttonisdisabledforAvgSalePrice();
+	    }
+	@Parameters({"text"})
+	@Test(description= "Verifying the Graph Avg sale price text is present in graph page in small widget Scoreboard Widget or not")
+	  public void isMarginGraphAddonAvgSalePriceTextPresent(String text) throws Exception {
+		Reporter.log("======================get the scoreboard Graph Avg saale price text======================",true);
+		String avgsaletext = sb.isMarginGraphAddonAvgSalePriceTextPresent();
+		test.log(LogStatus.INFO,"","Actual data : " +avgsaletext);
+		test.log(LogStatus.INFO,"","Expected data : " +text);
+		Assert.assertEquals(avgsaletext, text);
+	    }
+	@Test(description= "Verifying the Graph Avg sale price value from Scoreboard Widget across Avg sale price value which is comming from Backend")
+	  public void getMarginGraphAddonAvgSalePriceValue() throws Exception {
+		Reporter.log("======================get the scoreboard Graph Avg sale price value======================",true);
+		String avgsale = sb.getGraphAvgSalePriceValue();
+		test.log(LogStatus.INFO,"", "Actual value : " + avgsale);
+		double respop=gl.getresponsesintdata(headerwidgetfile,"RESULT","AVG_SALE_PRICE");
+		String formattedvalue=gl.truncate(respop);
+	    test.log(LogStatus.INFO,"", "Expected value : " + "$"+ formattedvalue);
+		Assert.assertEquals(avgsale, "$"+ formattedvalue);
+	    }
+	@Test(description= "Verifying the Graph Avg sale price YOY value from Scoreboard Widget across Avg sale price YOY value which is comming from Backend")
+	  public void getMarginGraphAddonAvgSalePriceYoYPercent() throws Exception {
+		Reporter.log("======================get the scoreboard Graph Avg sale price yoy value======================",true);
+		String avgsaleyoy = sb.getGraphAvgSalePriceYoYPercent();
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsaleyoy,"YOY","YOY_AVG_SALE_PRICE");
+	    }
+	@Test(description= "Verifying the Graph Avg sale price PVP value from Scoreboard Widget across Avg sale price PVP value which is comming from Backend")
+	  public void getMArginGraphAddonAvgSalePricePvPPercent() throws Exception {
+		Reporter.log("======================get the scoreboard Graph Avg sale price pvp value======================",true);
+		String avgsalepvp = sb.getGraphAvgSalePricePvPPercent();
+		sapi.getYOYandPVPforScoreboardsmallerwidgetvalues(headerwidgetfile,avgsalepvp,"PVP","PVP_AVG_SALE_PRICE");
+	    }
+	@Test(description= "Verifying the Average sale price addon button is closing the under in Margin graph page")
+	  public void closingtheaveragesalepricesmallwidget() throws Exception {
+		Reporter.log("======================get the scoreboard getallcompitator pvp values ======================",true);
+		sb.closingtheaveragesalepricesmallwidget();
 	    }
 	@Override
 	public void onTestStart(ITestResult result) {

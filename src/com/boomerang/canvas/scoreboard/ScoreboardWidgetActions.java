@@ -2,7 +2,11 @@ package com.boomerang.canvas.scoreboard;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import com.boomerang.canvas.testbase.Testbase;
@@ -92,6 +96,35 @@ public class ScoreboardWidgetActions extends Testbase {
     return getobject("conversion_percent_pvp").getText();
   }
 
+  public boolean getthegraphelement() throws Exception {
+	  loadfile();
+	  String xpath=prop.getProperty("margin_graph_value");
+	  String []value=xpath.split("##");
+      try{
+    	  driver.findElement(By.xpath(value[1]));
+    	  return true;
+      }
+      catch(NoSuchElementException e){
+          return false;
+      }
+	  }
+  ////////////////////////////
+  public void graphtooltipdata(){
+	  implicitwait();
+//List<WebElement> elements=driver.findElements(By.xpath("//g[@class='c3-event-rects c3-event-rects-single']/rect"));
+  WebElement toolTip = driver.findElement(By.xpath("//*[@class=' c3-event-rect c3-event-rect-22']/text()"));
+  Actions act=new Actions(driver);
+  act.moveToElement(toolTip).build().perform();
+  System.out.println("Specify Chart Type Data");
+  //for (WebElement el:  elements)
+  //{
+       String chartValue = toolTip.getText();
+       System.out.println("gssssssssssss" + chartValue);
+  
+  //}
+}
+  
+  /////////////////////////////////////////
   public String isPageViewsPresent() throws Exception {
     return getobject("pageviews_text").getText();
   }
@@ -271,4 +304,39 @@ public class ScoreboardWidgetActions extends Testbase {
 		  public List<WebElement> getallcompitatorpvpvalues() throws Exception {
 			    return getobjects("ppi_ppiscore_competitor_pvpvalue");
 			  }
+		  
+		  
+		  
+		  public void isMarginGraphAddonbuttonforAvgSalePrice() throws Exception {
+			    getobject("margin_graph_average_sale_price_button").click();
+			  }
+		  public boolean validatebuttonisdisabledforAvgSalePrice() throws Exception {
+			    boolean b=getobject("margin_graph_average_sale_price_button").isDisplayed();
+			    if(b){
+			    	return true;
+			    }
+			    else{
+			    	return false;
+			    }
+			  }
+		  public String isMarginGraphAddonAvgSalePriceTextPresent() throws Exception {
+			    return getobject("ppi_margin_avg_sale_price_text").getText();
+			  }
+
+			  public String getMarginGraphAddonAvgSalePriceValue() throws Exception {
+			    return getobject("ppi_margin_avg_sale_price_value").getText();
+			  }
+
+			  public String getMarginGraphAddonAvgSalePriceYoYPercent() throws Exception {
+			    return getobject("ppi_margin_avg_sale_price_percent_yoy").getText();
+			  }
+
+			  public String getMArginGraphAddonAvgSalePricePvPPercent() throws Exception {
+			    return getobject("ppi_margin_avg_sale_price_percent_pvp").getText();
+			  }
+			  
+			  public void closingtheaveragesalepricesmallwidget() throws Exception {
+				    getobject("ppi_margin_avg_sale_price_close_button").click();
+				  }
+			  
 }

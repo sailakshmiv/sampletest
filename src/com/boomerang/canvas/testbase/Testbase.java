@@ -73,6 +73,7 @@ public static void loadfile() throws IOException{
 public static List<WebElement> getLocators(String locator) throws Exception{
 	String locatortype=locator.split("##")[0];
 	String locatorvalue=locator.split("##")[1];
+	
 	if(locatortype.toLowerCase().equals("id")){
 		return  driver.findElements(By.id(locatorvalue));
 	}
@@ -107,6 +108,7 @@ public static WebElement getLocator(String locator) throws Exception{
 	WebDriverWait wait=new WebDriverWait(driver,100);
 	String locatortype=locator.split("##")[0];
 	String locatorvalue=locator.split("##")[1];
+	System.out.println("dgfdhdhg"+locatorvalue);
 	if(locatortype.toLowerCase().equals("id")){
 		return  wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(locatorvalue)));
 	}

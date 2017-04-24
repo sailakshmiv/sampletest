@@ -31,7 +31,7 @@ public class Bigmoverswidgetapi extends Testbase{
 	ReadOutputdata RTC = new ReadOutputdata();
 	 DecimalFormat format = new DecimalFormat();
 	
-	public void getHeaderdata_from_api(String jsonfile,String filename,String inputfilename) throws JSONException {
+	public void getBigmoversdata_from_api(String jsonfile,String filename,String inputfilename) throws JSONException {
 		hapi.getHeaderdata_from_api(jsonfile,filename,inputfilename);
 	}
 	public void getYOYandPVPforScoreboardwidgetvalues(String filename,String metrix,String value1,String value2) throws Exception{
