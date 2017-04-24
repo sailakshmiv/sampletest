@@ -145,7 +145,7 @@ public static void main(String args[]) throws Exception{
 		driver.get(System.getProperty("ClientURL"));
 		ts.suitetest();
 		ScreenshotListener sl=new ScreenshotListener();
-		//sl.upLoaadReport();
+		sl.upLoaadReport();
 		driver.quit();
 }
 
