@@ -61,7 +61,7 @@ public class Scoreboardwidgetapi extends Testbase{
 		
 		}
 		 resrevenue1 =gl.conversioninpercent(value1);
-			resrevenue1="▼" + " "+resrevenue1+"%" +" "+ metrix1;
+			resrevenue1="▼" + " "+resrevenue1 +" "+ metrix1;
 		
 		return resrevenue1;
 }
@@ -83,7 +83,7 @@ public class Scoreboardwidgetapi extends Testbase{
 		}
 		 resrevenue1 =gl.conversioninpercent(value1);
 		 
-			resrevenue1= "▲" + " "+resrevenue1+"%" +" "+ metrix1;
+			resrevenue1= "▲" + " "+resrevenue1 +" "+ metrix1;
 		return resrevenue1;
 }	
 }

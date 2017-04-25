@@ -125,7 +125,7 @@ public class Genericlib extends Testbase{
 		public String conversioninpercent(Double value1) throws Exception{
 			String resrevenue1;
 			if(value1>=0 && value1<1000){
-				resrevenue1=truncate(value1);
+				resrevenue1=truncate(value1)+ "%";
 			}
 			else if(value1>=1000 && value1<1000000){
 				resrevenue1=truncate(value1/1000) + "%";

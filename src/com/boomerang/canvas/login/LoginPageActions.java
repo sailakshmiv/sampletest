@@ -143,8 +143,8 @@ public class LoginPageActions extends Testbase{
 		getobject("forget_Password_link").click();
 		getobject("forget_password_username").sendKeys(mail);
 		getobject("forget_password_recoverybutton").click();
-        implicitwait();
-        threadwait();
+		implicitwait();
+		threadwait();
 		fs = new FileInputStream(workspace + "/src/com/boomerang/canvas/login/forgetpassword.properties");
 		prop1.load(fs);
 		oldpassword=prop1.getProperty("password");
